@@ -1,0 +1,67 @@
+{
+  "deck": [
+    {
+      "nomeMazzo": "Introduzione",
+      "carta": [
+        {
+          "id": 0,
+          "titolo": "Carta Uno",
+          "descrizione": "Descrizione della carta Uno",
+          "testoSinistra": "stai andando a sinistra",
+          "testoDestra": "stai andando a destra",
+          "img": "/uno.png",
+          "indicatore": {
+            "etica": {
+              "destra": 10,
+              "sinistra": -10
+            },
+            "popolo": {
+              "destra": 5,
+              "sinistra": -10
+            },
+            "progresso": {
+              "destra": 50,
+              "sinistra": -10
+            }
+          }
+        },
+        {
+          "id": 0,
+          "numSkipCarte": 2,
+          "skipCarteDirection": true,
+          "titolo": "Sono una carta skip",
+          "descrizione": "se andro a destra skippero delle carte",
+          "testoSinistra": "si",
+          "testoDestra": "no",
+          "img": "/due.jpg",
+          "indicatore": {
+            "etica": {
+              "destra": 50,
+              "sinistra": -10
+            },
+            "popolo": {
+              "destra": 50,
+              "sinistra": -10
+            },
+            "progresso": {
+              "destra": 50,
+              "sinistra": -10
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "mazzoIndustriale",
+      "cards": [
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
+        }
+      ]
+    }
+  ]
+}
