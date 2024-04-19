@@ -39,6 +39,66 @@
                     "img":"/death.png" 
                 }
             }
+        },
+        {
+            "nomeMazzo" : "Introduzione",
+            "indicatore":{
+                "etica":{
+                    "titolo":"sei morto etica 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png"
+                },
+                "progresso":{
+                    "titolo":"sei morto progresso 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                },
+                "popolo":{
+                    "titolo":"sei morto popolo 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                }
+            }
+        },
+        {
+            "nomeMazzo" : "Introduzione",
+            "indicatore":{
+                "etica":{
+                    "titolo":"sei morto etica 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png"
+                },
+                "progresso":{
+                    "titolo":"sei morto progresso 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                },
+                "popolo":{
+                    "titolo":"sei morto popolo 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                }
+            }
+        },
+        {
+            "nomeMazzo" : "Introduzione",
+            "indicatore":{
+                "etica":{
+                    "titolo":"sei morto etica 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png"
+                },
+                "progresso":{
+                    "titolo":"sei morto progresso 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                },
+                "popolo":{
+                    "titolo":"sei morto popolo 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/death.png" 
+                }
+            }
         }
     ]
 }
