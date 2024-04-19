@@ -178,7 +178,7 @@ export default function Home() {
             <div>
               {
             mazzo.carta.map((x,index)=>{ //matteo qui non va
-              <h1 key={index}>carta</h1>
+              return <h1 key={index}>carta</h1>
             })
 
               }
