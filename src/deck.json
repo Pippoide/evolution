@@ -5,7 +5,7 @@
       "carta": [
         {
           "id": 0,
-          "titolo": "Carta Uno",
+          "titolo": "Carta Uno Mazzo 1",
           "descrizione": "Descrizione della carta Uno",
           "testoSinistra": "stai andando a sinistra",
           "testoDestra": "stai andando a destra",
@@ -20,31 +20,97 @@
               "sinistra": -10
             },
             "progresso": {
-              "destra": 50,
+              "destra": 0,
               "sinistra": -10
             }
           }
         },
         {
-          "id": 0,
-          "numSkipCarte": 2,
+          "id": 1,
+          "numSkipCarte": 3,
           "skipCarteDirection": true,
-          "titolo": "Sono una carta skip",
+          "titolo": "Sono una carta skip 2 a destra",
           "descrizione": "se andro a destra skippero delle carte",
           "testoSinistra": "si",
           "testoDestra": "no",
           "img": "/due.jpg",
           "indicatore": {
             "etica": {
-              "destra": 50,
+              "destra": 0,
               "sinistra": -10
             },
             "popolo": {
-              "destra": 50,
+              "destra": 0,
               "sinistra": -10
             },
             "progresso": {
-              "destra": 50,
+              "destra": 0,
+              "sinistra": -10
+            }
+          }
+        },
+        {
+          "id": 0,
+          "titolo": "mi avrestsi skippato 1",
+          "descrizione": "Descrizione della carta Uno",
+          "testoSinistra": "stai andando a sinistra",
+          "testoDestra": "stai andando a destra",
+          "img": "/uno.png",
+          "indicatore": {
+            "etica": {
+              "destra": 10,
+              "sinistra": -10
+            },
+            "popolo": {
+              "destra": 5,
+              "sinistra": -10
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": -10
+            }
+          }
+        },
+        {
+          "id": 0,
+          "titolo": "mi avresti skippato 2",
+          "descrizione": "Descrizione della carta Uno",
+          "testoSinistra": "stai andando a sinistra",
+          "testoDestra": "stai andando a destra",
+          "img": "/uno.png",
+          "indicatore": {
+            "etica": {
+              "destra": 10,
+              "sinistra": -10
+            },
+            "popolo": {
+              "destra": 5,
+              "sinistra": -10
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": -10
+            }
+          }
+        },
+        {
+          "id": 0,
+          "titolo": "eeheh mi hai perso 2 carte",
+          "descrizione": "Descrizione della carta Uno",
+          "testoSinistra": "stai andando a sinistra",
+          "testoDestra": "stai andando a destra",
+          "img": "/uno.png",
+          "indicatore": {
+            "etica": {
+              "destra": 10,
+              "sinistra": -10
+            },
+            "popolo": {
+              "destra": 5,
+              "sinistra": -10
+            },
+            "progresso": {
+              "destra": 0,
               "sinistra": -10
             }
           }
@@ -53,11 +119,35 @@
     },
     {
       "name": "mazzoIndustriale",
-      "cards": [
+      "carta": [
         {
           "id": 0,
           "evento": true,
-          "titolo": "Carta Uno",
+          "titolo": "Carta Uno Mazzo 2",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
+        }
+      ]
+    },
+    {
+      "name": "mazzoIndustriale",
+      "carta": [
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno Mazzo 3",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
+        }
+      ]
+    },
+    {
+      "name": "mazzoIndustriale",
+      "carta": [
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
           "img": "/bodoni.jpg"
         }

@@ -4,6 +4,7 @@ import { motion, useDragControls, useMotionValue, useTransform } from "framer-mo
 import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const decks = require("../deck.json")
@@ -13,13 +14,14 @@ export default function Home() {
   const [indicatorePopolo, setIndicatorePopolo] = useState(50);
   //variabili di Mazzo
   const [contatoreMazzo, setContatoreMazzo] = useState(0);
-  const [contatoteCarta, setContatoreCarta] = useState(0);
+  const [contatoreCarta, setContatoreCarta] = useState(0);
   //variabile di vittoria
   const [statusGioco, setStatusGioco] = useState(false);
 
   const mazzo = decks.deck[contatoreMazzo];
-  const carta = mazzo.carta[contatoteCarta];
-
+  const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
+  const mazzoLength = mazzo.carta.length; //Totale carte nel mazzo
+  const carta = mazzo.carta[contatoreCarta];
 
   const controls = useDragControls()
   const x = useMotionValue(0);
@@ -31,25 +33,32 @@ export default function Home() {
   const textOpacityLeft = useTransform(x, [0, -50], [0, 1]);
   const textOpacityRight = useTransform(x, [0, 50], [0, 1])
 
+  const js = Object.keys(mazzo.carta).map((key) => [key,mazzo.carta[key]])
+
 
   useEffect(() => {
     // Dopo che lo stato è stato effettivamente aggiornato, esegui checkIndicatore
     checkIndicatore();
-  }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]); 
+  }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]);
+
+  useEffect(() => {
+    console.log("Mazzo : " + contatoreMazzo)
+    console.log("Carta : " + contatoreCarta)
+    console.log(carta)
+  }, [contatoreCarta, contatoreMazzo])
 
   const checkIndicatore = () => {
-    console.log(indicatoreProgresso)
+    //console.warn("CheckIndicatore() => controllo valori in corso...")
     if (
       (indicatoreEtica >= 100 || indicatoreEtica <= 0) ||
       (indicatorePopolo >= 100 || indicatorePopolo <= 0) ||
       (indicatoreProgresso >= 100 || indicatoreProgresso <= 0)
     ) {
-      console.log("sada")
       setStatusGioco(true);
-      console.log("cambiato status")
+      window.alert("Hai perso")
     }
-    else{
-      console.log("sotto il 100")
+    else {
+      console.log("Partita in corso")
     }
     return 0
   }
@@ -74,34 +83,64 @@ export default function Home() {
       setIndicatorePopolo(prevPopolo => prevPopolo + indexPopolo)
       setIndicatoreProgresso(prevProgresso => prevProgresso + indexProgresso)
     }
-    checkIndicatore();
   }
-
 
   const handleDragEnd = (event, info) => {
 
     if (!carta?.evento) {
-      if (info.offset.x > 1) {
+      if (info.offset.x > 50) {
         // Esegui azione di swipe a destra
-        setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
         changeIndicatore(true)
+        //
+        if (carta?.skipCarteDirection == true) {
+          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
+          console.log(contatoreCarta)
+        }
+        else {
+          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
+        }
+        checkNextCarta()
         console.log("Swipe a destra!");
-      } else if (info.offset.x < -1) {
+      } else if (info.offset.x < -50) {
         changeIndicatore(false)
+        //
+        if (carta?.skipCarteDirection == false) {
+          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
+        } else {
+          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
+        }
+        checkNextCarta()
+        //nuova carta
         // Esegui azione di swipe a sinistra
         console.log("Swipe a sinistra!");
       }
-
       // Resetta la posizione del div
       x.set(0);
+    } else {
+      console.log("carta evneto")
+      if (carta?.skipCarteDirection == false) {
+        setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
+      }
+      else {
+        setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
+      }
+      checkNextCarta()
     }
   };
 
-  console.log("gioco" + statusGioco)
-  console.log("popolo" + indicatorePopolo)
-  if(indicatoreProgresso >= 100){
-    console.log("wtf")
+  const checkNextCarta = () => {
+    if (contatoreCarta >= mazzoLength - 1) {
+      setContatoreCarta(0) //resetta la carta
+      if (contatoreMazzo < deckLength - 1) {
+        setContatoreMazzo(prevMazzo => prevMazzo + 1)
+      } //vai al prossimo mazzo
+      else {
+        console.log("hai vinto")
+        window.alert('hai vinto');
+      }
+    }
   }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <h1>status partita : {statusGioco ? "true" : "false"}</h1>
@@ -117,7 +156,7 @@ export default function Home() {
             <span>{indicatoreProgresso}</span>
           </div>
           <div className="w-10 h-10 relative flex flex-col">
-            <Image  alt="asd" src="/persona.svg" fill className="point-event-none" draggable="false"></Image>
+            <Image alt="asd" src="/persona.svg" fill className="point-event-none" draggable="false"></Image>
             <span>{indicatorePopolo}</span>
           </div>
         </div>
@@ -136,15 +175,26 @@ export default function Home() {
               rotate
             }}
           >
+            <div>
+              {
+            mazzo.carta.map((x,index)=>{ //matteo qui non va
+              <h1 key={index}>carta</h1>
+            })
+
+              }
+            </div>
+
             <div className="w-full aspect-square relative">
-              <motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>
-              <motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>
-              <Image alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" objectFit='cover' fill 	></Image>
+              {!carta.testoDestra ? ("") :
+                (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+              {!carta.testoSinistra ? ("") :
+                (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+              <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
             </div>
           </motion.div>
           <div className="w-full aspect-square absolute top-0 z-0">
             <div className="w-full aspect-square relative">
-              <Image  alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill 	></Image>
+              <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
             </div>
           </div>
         </div>
