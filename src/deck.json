@@ -9,7 +9,7 @@
           "descrizione": "Descrizione della carta Uno",
           "testoSinistra": "stai andando a sinistra",
           "testoDestra": "stai andando a destra",
-          "img": "/uno.png",
+          "img": "/card.png",
           "indicatore": {
             "etica": {
               "destra": 100,
@@ -33,7 +33,7 @@
           "descrizione": "se andro a destra skippero delle carte",
           "testoSinistra": "si",
           "testoDestra": "no",
-          "img": "/due.jpg",
+          "img": "/skip.png",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -55,7 +55,7 @@
           "descrizione": "Descrizione della carta Uno",
           "testoSinistra": "stai andando a sinistra",
           "testoDestra": "stai andando a destra",
-          "img": "/uno.png",
+          "img": "/card.png",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -77,7 +77,7 @@
           "descrizione": "Descrizione della carta Uno",
           "testoSinistra": "stai andando a sinistra",
           "testoDestra": "stai andando a destra",
-          "img": "/uno.png",
+          "img": "/card.png",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -99,7 +99,7 @@
           "descrizione": "Descrizione della carta Uno",
           "testoSinistra": "stai andando a sinistra",
           "testoDestra": "stai andando a destra",
-          "img": "/uno.png",
+          "img": "/card.png",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -125,7 +125,7 @@
           "evento": true,
           "titolo": "Carta Uno Mazzo 2",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         }
       ]
     },
@@ -137,7 +137,7 @@
           "evento": true,
           "titolo": "Carta Uno Mazzo 3",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         }
       ]
     },
@@ -149,28 +149,28 @@
           "evento": true,
           "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         },
         {
           "id": 0,
           "evento": true,
           "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         },
         {
           "id": 0,
           "evento": true,
           "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         },
         {
           "id": 0,
           "evento": true,
           "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
-          "img": "/bodoni.jpg"
+          "img": "/event.png"
         }
       ]
     }

@@ -183,7 +183,7 @@ export default function Home() {
         {statusGioco ? (
         <div>
           <div className="w-full aspect-square relative z-10">
-            <h1>sei morto</h1>
+        
             <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
           </div>
         </div>) : (
@@ -221,11 +221,11 @@ export default function Home() {
 
               </div>
               { }
-              <div className="w-full aspect-square relative">
+              <div className="w-full aspect-square relative ">
                 {!carta.testoDestra ? ("") :
-                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none  absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                 {!carta.testoSinistra ? ("") :
-                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
                 <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
               </div>
             </motion.div>
