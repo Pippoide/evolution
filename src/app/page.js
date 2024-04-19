@@ -17,6 +17,7 @@ export default function Home() {
   const [contatoreCarta, setContatoreCarta] = useState(0);
   //variabile di vittoria
   const [statusGioco, setStatusGioco] = useState(false);
+  const [animationNewCard, setAnimationNewCard] = useState(true)
 
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
@@ -33,7 +34,6 @@ export default function Home() {
   const textOpacityLeft = useTransform(x, [0, -50], [0, 1]);
   const textOpacityRight = useTransform(x, [0, 50], [0, 1])
 
-  const js = Object.keys(mazzo.carta).map((key) => [key,mazzo.carta[key]])
 
 
   useEffect(() => {
@@ -41,11 +41,12 @@ export default function Home() {
     checkIndicatore();
   }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]);
 
+
   useEffect(() => {
-    console.log("Mazzo : " + contatoreMazzo)
-    console.log("Carta : " + contatoreCarta)
-    console.log(carta)
-  }, [contatoreCarta, contatoreMazzo])
+    setAnimationNewCard(true)
+    console.log("inizio animazione")
+
+  }, [contatoreMazzo])
 
   const checkIndicatore = () => {
     //console.warn("CheckIndicatore() => controllo valori in corso...")
@@ -141,6 +142,14 @@ export default function Home() {
     }
   }
 
+  //animazione nuove mazoz
+  const handleAnimationComplete = (x) => {
+    setTimeout(() => {
+      console.log("L'animazione è terminata!");
+      setAnimationNewCard(false)
+    }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <h1>status partita : {statusGioco ? "true" : "false"}</h1>
@@ -175,13 +184,24 @@ export default function Home() {
               rotate
             }}
           >
-            <div>
-              {
-            mazzo.carta.map((x,index)=>{ //matteo qui non va
-              return <h1 key={index}>carta</h1>
-            })
 
-              }
+            <div>
+              {animationNewCard ? (
+                mazzo.carta.map((x, index) => { //matteo qui non va
+                  return <motion.div
+                    className="w-full rounded-3xl aspect-square absolute bg-red-600"
+                    key={index}
+                    initial={{ opacity: 0, y: -100 }}
+                    exit={{ opacity: 0, y: 100 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
+                    onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
+                  >
+                    <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+
+                  </motion.div>
+                })) : ("")}
+
             </div>
 
             <div className="w-full aspect-square relative">

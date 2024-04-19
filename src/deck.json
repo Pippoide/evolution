@@ -150,6 +150,27 @@
           "titolo": "Carta Uno Mazzo 4",
           "descrizione": "Descrizione della carta Uno",
           "img": "/bodoni.jpg"
+        },
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno Mazzo 4",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
+        },
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno Mazzo 4",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
+        },
+        {
+          "id": 0,
+          "evento": true,
+          "titolo": "Carta Uno Mazzo 4",
+          "descrizione": "Descrizione della carta Uno",
+          "img": "/bodoni.jpg"
         }
       ]
     }
