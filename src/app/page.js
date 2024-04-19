@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 
 export default function Home() {
   const decks = require("../deck.json")
+  const deckDeath = require("../deathDeck.json")
   //IndicatoriGioco
   const [indicatoreProgresso, setIndicatoreProgresso] = useState(50);
   const [indicatoreEtica, setIndicatoreEtica] = useState(50);
@@ -19,10 +20,15 @@ export default function Home() {
   const [statusGioco, setStatusGioco] = useState(false);
   const [animationNewCard, setAnimationNewCard] = useState(true)
 
+  /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
   const mazzoLength = mazzo.carta.length; //Totale carte nel mazzo
   const carta = mazzo.carta[contatoreCarta];
+
+  /** variabili Morte*/
+  const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
+  const [cartaMorte,setCartaMorte] = useState(mazzoMorte.indicatore);
 
   const controls = useDragControls()
   const x = useMotionValue(0);
@@ -57,6 +63,10 @@ export default function Home() {
     ) {
       setStatusGioco(true);
       window.alert("Hai perso")
+      if (indicatoreEtica >= 100 || indicatoreEtica <= 0) {
+        setStatusGioco(true);
+        setCartaMorte(prev => prev.etica)
+      }
     }
     else {
       console.log("Partita in corso")
@@ -89,7 +99,7 @@ export default function Home() {
   const handleDragEnd = (event, info) => {
 
     if (!carta?.evento) {
-      if (info.offset.x > 50) {
+      if (info.offset.x > 10) {
         // Esegui azione di swipe a destra
         changeIndicatore(true)
         //
@@ -102,7 +112,7 @@ export default function Home() {
         }
         checkNextCarta()
         console.log("Swipe a destra!");
-      } else if (info.offset.x < -50) {
+      } else if (info.offset.x < -10) {
         changeIndicatore(false)
         //
         if (carta?.skipCarteDirection == false) {
@@ -170,61 +180,67 @@ export default function Home() {
           </div>
         </div>
         {/**card */}
-        <div className="w-full aspect-square relative">
-          <motion.div
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragControls={controls}
-            onDragEnd={handleDragEnd}
-            className="w-full aspect-square relative z-10"
-            style={{
-              x,
-              opacity,
-              scale,
-              rotate
-            }}
-          >
-
-            <div>
-              {animationNewCard ? (
-                mazzo.carta.map((x, index) => { //matteo qui non va
-                  return <motion.div
-                    className="w-full rounded-3xl aspect-square absolute bg-red-600"
-                    key={index}
-                    initial={{ opacity: 0, y: -100 }}
-                    exit={{ opacity: 0, y: 100 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
-                    onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
-                  >
-                    <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
-
-                  </motion.div>
-                })) : ("")}
-
-            </div>
-
-            <div className="w-full aspect-square relative">
-              {!carta.testoDestra ? ("") :
-                (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
-              {!carta.testoSinistra ? ("") :
-                (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
-              <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
-            </div>
-          </motion.div>
-          <div className="w-full aspect-square absolute top-0 z-0">
-            <div className="w-full aspect-square relative">
-              <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
-            </div>
+        {statusGioco ? (
+        <div>
+          <div className="w-full aspect-square relative z-10">
+            <h1>sei morto</h1>
+            <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
           </div>
-        </div>
+        </div>) : (
+          <div className="w-full aspect-square relative">
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragControls={controls}
+              onDragEnd={handleDragEnd}
+              className="w-full aspect-square relative z-10"
+              style={{
+                x,
+                opacity,
+                scale,
+                rotate
+              }}
+            >
+              {/**animazione */}
+              <div>
+                {animationNewCard ? (
+                  mazzo.carta.map((x, index) => { //matteo qui non va
+                    return <motion.div
+                      className="w-full rounded-3xl aspect-square absolute bg-red-600"
+                      key={index}
+                      initial={{ opacity: 0, y: -100 }}
+                      exit={{ opacity: 0, y: 100 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
+                      onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
+                    >
+                      <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+
+                    </motion.div>
+                  })) : ("")}
+
+              </div>
+              { }
+              <div className="w-full aspect-square relative">
+                {!carta.testoDestra ? ("") :
+                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                {!carta.testoSinistra ? ("") :
+                  (<motion.h1 className="text-3xl z-10 cursor-pointer-none text-white absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
+              </div>
+            </motion.div>
+            <div className="w-full aspect-square absolute top-0 z-0">
+              <div className="w-full aspect-square relative">
+                <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+              </div>
+            </div>
+          </div>)}
         {/**text */}
         <div className="w-full flex flex-col text-center">
           <h1>{carta.titolo}</h1>
           <p>{carta.descrizione}</p>
         </div>
       </div>
-
     </main>
   );
 }

@@ -12,7 +12,7 @@
           "img": "/uno.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
+              "destra": 100,
               "sinistra": -10
             },
             "popolo": {

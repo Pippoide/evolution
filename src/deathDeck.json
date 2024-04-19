@@ -1,0 +1,44 @@
+{
+    "deck":[
+        {
+            "nomeMazzo" : "Generico",
+            "indicatore":{
+                "etica":{
+                    "titolo":"sei morto etica",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg"
+                },
+                "progresso":{
+                    "titolo":"sei morto progresso",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg" 
+                },
+                "popolo":{
+                    "titolo":"sei morto popolo",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg" 
+                }
+            }
+        },
+        {
+            "nomeMazzo" : "Introduzione",
+            "indicatore":{
+                "etica":{
+                    "titolo":"sei morto etica 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg"
+                },
+                "progresso":{
+                    "titolo":"sei morto progresso 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg" 
+                },
+                "popolo":{
+                    "titolo":"sei morto popolo 1",
+                    "descrizione": "aahhahahahah sei morto loser",
+                    "img":"/bodoni.jpg" 
+                }
+            }
+        }
+    ]
+}
