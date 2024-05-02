@@ -2,24 +2,22 @@ import Link from "next/link"
 
 async function getData() {
   try {
-    const res = await fetch('http://localhost:3000/api/leadboard');
-
-    console.log(res)
-    const data = await res.json();
-    console.log(data)
-    return data
+    const res = await fetch(`http://localhost:3000/api/leadboard?${Date.now()}`);
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await res.json();
   } catch (error) {
     console.error('Error fetching data:', error);
+    return { error };
   }
-
 }
 
 export default async function Home() {
   const data = await getData()
-  console.log(data)
   const rows = data.result.rows
 
-  return (
+  return ( 
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <h1>Scopri quanto ne sai della storia sulla grafica</h1>
       <Link href="/game" className="bg-red-50 px-4 py-2">gioca</Link>
@@ -39,7 +37,7 @@ export default async function Home() {
         })}
       </div>
     </div>
-  )
+  ) 
 }
 
 
