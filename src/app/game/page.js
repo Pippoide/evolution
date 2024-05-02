@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { motion, useDragControls, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function Game() {
+  
   const decks = require("../../deck.json")
   const deckDeath = require("../../deathDeck.json")
   //IndicatoriGioco
@@ -19,6 +20,7 @@ export default function Game() {
   const [statusGioco, setStatusGioco] = useState(false);
   const [animationNewCard, setAnimationNewCard] = useState(true)
   const [score,setScore] = useState(0)
+  const [nomeGiocatore,setNomeGiocatore] = useState(null)
 
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
@@ -40,8 +42,6 @@ export default function Game() {
   const rotate = useTransform(x, [-200, 0, 200], [-5, 0, 5]);
   const textOpacityLeft = useTransform(x, [0, -50], [0, 1]);
   const textOpacityRight = useTransform(x, [0, 50], [0, 1]);
-
-
 
 
   useEffect(() => {
@@ -153,6 +153,22 @@ export default function Game() {
     }
   }
 
+  async function insertData() {
+    try {
+      const res = await fetch(`http://localhost:3000/api/insert?nomegiocatore=${nomeGiocatore}&score=${score}` );
+      const data = await res.json();
+      return data
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  
+  }
+
+  const handleSubmit = async (e) => {
+
+    const res = await insertData()
+    console.log(res)
+  };
   //animazione nuove mazoz
   const handleAnimationComplete = (x) => {
     setTimeout(() => {
@@ -166,9 +182,9 @@ export default function Game() {
       <div className="sm:w-1/3 w-full min-h-screen bg-red-50 p-5 relative flex flex-col justify-between">  {/**column */}
         {statusGioco ? (
           <div className="p-2 bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
-            <form className="flex flex-col">
+            <form className="flex flex-col" onSubmit={handleSubmit()}>
               <h1>Assurdo eri cosi vicino</h1>
-              <input type="text" placeholder="nickname"></input>
+              <input type="text" placeholder="nickname" value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
               <button type="submit">Resta nella storia</button>
             </form>
           </div>) : ""}
