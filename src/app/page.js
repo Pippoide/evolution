@@ -2,10 +2,7 @@ import Link from "next/link"
 
 async function getData() {
   try {
-    const res = await fetch(`http://localhost:3000/api/leadboard?${Date.now()}`);
-    if (!res.ok) {
-      throw new Error('Network response was not ok');
-    }
+    const res = await fetch(`${process.env.BACKEND_URL}/leadboard?${Date.now()}`, { cache: 'default', next: { tags: ['leadboard'] } });
     return await res.json();
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -13,11 +10,10 @@ async function getData() {
   }
 }
 
-export default async function Home() {
-  const data = await getData()
-  const rows = data.result.rows
 
-  return ( 
+export default async function Home() {
+  const rows = await getData()
+  return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <h1>Scopri quanto ne sai della storia sulla grafica</h1>
       <Link href="/game" className="bg-red-50 px-4 py-2">gioca</Link>
@@ -31,13 +27,13 @@ export default async function Home() {
           return (
             <div className="flex justify-between" key={index}>
               <h1>{index + 1}</h1>
-              <h1>{rows.nome_giocatore}</h1>
+              <h1>{rows.name}</h1>
               <h1>{rows.score}</h1>
             </div>)
         })}
       </div>
     </div>
-  ) 
+  )
 }
 
 

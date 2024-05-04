@@ -4,11 +4,14 @@ import { motion, useDragControls, useMotionValue, useTransform } from "framer-mo
 import Image from "next/image";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import { useRouter } from 'next/navigation'
+import actionRevalidateTag from "../actions";
 export default function Game() {
-  
+
   const decks = require("../../deck.json")
   const deckDeath = require("../../deathDeck.json")
+  const router = useRouter()
+
   //IndicatoriGioco
   const [indicatoreProgresso, setIndicatoreProgresso] = useState(50);
   const [indicatoreEtica, setIndicatoreEtica] = useState(50);
@@ -19,15 +22,15 @@ export default function Game() {
   //variabile di vittoria
   const [statusGioco, setStatusGioco] = useState(false);
   const [animationNewCard, setAnimationNewCard] = useState(true)
-  const [score,setScore] = useState(0)
-  const [nomeGiocatore,setNomeGiocatore] = useState('')
+  const [score, setScore] = useState(0)
+  const [nomeGiocatore, setNomeGiocatore] = useState('')
 
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
   const mazzoLength = mazzo.carta.length; //Totale carte nel mazzo
   const carta = mazzo.carta[contatoreCarta];
- 
+
 
   /** variabili Morte*/
   const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
@@ -98,7 +101,7 @@ export default function Game() {
   }
 
   const handleDragEnd = (event, info) => {
-    setScore(prev => prev +1)
+    setScore(prev => prev + 1)
     if (!carta?.evento) {
       if (info.offset.x > 100) {
         changeIndicatore(true)
@@ -155,21 +158,20 @@ export default function Game() {
 
   async function insertData() {
     try {
-      const res = await fetch(`http://localhost:3000/api/insert?nomegiocatore=${nomeGiocatore}&score=${score}` );
-      const data = await res.json();
-      return data
+      const res = await fetch(`http://localhost:3000/api/leadboard`,
+        {
+          method: "POST",
+          body: JSON.stringify({ name: nomeGiocatore, score }),
+          next: { tags: ['leadboard'] }
+        });
+      await actionRevalidateTag('leadboard')
+      return await res.json();
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  
-  }
 
-  async function handleSubmit(){
-    
-    const res = await insertData()
-    console.log(res)
   }
-  //animazione nuove mazoz
+  //animazione nuove mazzo
   const handleAnimationComplete = (x) => {
     setTimeout(() => {
       console.log("L'animazione è terminata!");
@@ -182,7 +184,16 @@ export default function Game() {
       <div className="sm:w-1/3 w-full min-h-screen bg-red-50 p-5 relative flex flex-col justify-between">  {/**column */}
         {statusGioco ? (
           <div className="p-2 bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
-            <form className="flex flex-col" onSubmit={handleSubmit}>
+            <form className="flex flex-col" onSubmit={async (event) => {
+              event.preventDefault();
+              try {
+                const response = await insertData();
+                console.log('before push:', response)
+                router.push('/')
+              } catch (err) {
+                console.error(err);
+              }
+            }}>
               <h1>Assurdo eri cosi vicino</h1>
               <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
               <button type="submit">Resta nella storia</button>
