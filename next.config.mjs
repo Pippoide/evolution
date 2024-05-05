@@ -1,9 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
-    env: {
-        BASE_URL: process.env.BASE_URL,
-    }
-};
+  
+  const nextConfig = {
+    async headers() {
+        return [
+          {
+            source: "/api/:path*",
+            headers: [
+              { key: "Access-Control-Allow-Origin", value: "*" },
+              { key: "Access-Control-Allow-Methods", value: "GET,POST,PUT,PATCH,DELETE,OPTIONS" },
+              { key: "Access-Control-Allow-Headers", value: "X-Requested-With,Authorization,Content-Type,Accept" },
+            ],
+          },
+        ];
+      },
+  };
+ 
 
-export default nextConfig;
+  export default nextConfig;
