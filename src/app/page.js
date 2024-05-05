@@ -12,13 +12,13 @@ async function getData() {
 
 
 export default async function Home() {
-  const rows = [{name:"ciao",score:2}]
+  const data =  await getData()
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <h1>Scopri quanto ne sai della storia sulla grafica</h1>
       <Link href="/game" className="bg-red-50 px-4 py-2">gioca</Link>
-      <div>
+      <div> 
         <div className="flex justify-between">
           <h1>posizione</h1>
           <h1>nickname</h1>
