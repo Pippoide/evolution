@@ -16,9 +16,7 @@ async function getData() {
 
 
 export default async function Home() {
-  const x = await getData();
-  console.log(x)
-  const rows = [{name:"sada",score:999}]
+  const rows = await getData();
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <h1>Scopri quanto ne sai della storia sulla grafica</h1>
