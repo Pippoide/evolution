@@ -155,6 +155,7 @@ export default function Game() {
       }
     }
   }
+  console.log("sadad:",process.env.BACKEND_URL)
 
   async function insertData() {
     try {
