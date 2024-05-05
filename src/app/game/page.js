@@ -155,11 +155,11 @@ export default function Game() {
       }
     }
   }
-  console.log("sadad:",process.env.BACKEND_URL)
+  //console.log("sadad:",process.env.NEXT_PUBLIC_BACKEND_URL)
 
   async function insertData() {
     try {
-      const res = await fetch(`${process.env.BACKEND_URL}/leadboard`,
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leadboard`,
         {
           method: "POST",
           body: JSON.stringify({ name: nomeGiocatore, score }),

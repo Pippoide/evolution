@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-console.log(process.env.BACKEND_URL)
+
 async function getData() {
   try {
     const res = await fetch(`${process.env.BACKEND_URL}/leadboard?${Date.now()}`, {
