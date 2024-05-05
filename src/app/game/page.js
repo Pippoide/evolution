@@ -158,7 +158,7 @@ export default function Game() {
 
   async function insertData() {
     try {
-      const res = await fetch(`http://localhost:3000/api/leadboard`,
+      const res = await fetch(`${process.env.BACKEND_URL}/leadboard`,
         {
           method: "POST",
           body: JSON.stringify({ name: nomeGiocatore, score }),
