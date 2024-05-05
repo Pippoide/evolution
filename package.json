@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "vercel-build": "prisma generate && prisma migrate && prisma db push && deploy && next build",
+    "vercel-build": "prisma generate && prisma migrate && prisma db push && next build",
     "dev": "next dev",
-    "build": "next build && npm run vercel-build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
