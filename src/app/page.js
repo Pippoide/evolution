@@ -12,7 +12,7 @@ async function getData() {
 
 
 export default async function Home() {
-  const data =  await getData()
+  const rows =  await getData()
 
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
