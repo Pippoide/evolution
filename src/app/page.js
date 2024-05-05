@@ -1,8 +1,12 @@
 import Link from "next/link"
 
+console.log(process.env.BACKEND_URL)
 async function getData() {
   try {
-    const res = await fetch(`${process.env.BACKEND_URL}/leadboard?${Date.now()}`, { cache: 'default', next: { tags: ['leadboard'] } });
+    const res = await fetch(`${process.env.BACKEND_URL}/leadboard?${Date.now()}`, {
+       method: "GET",
+       cache: 'default',
+       next: { tags: ['leadboard'] } });
     return await res.json();
   } catch (error) {
     console.error('Error fetching data:', error);
@@ -12,13 +16,14 @@ async function getData() {
 
 
 export default async function Home() {
-  const rows =  await getData()
-
+  const x = await getData();
+  console.log(x)
+  const rows = [{name:"sada",score:999}]
   return (
     <div className="h-screen w-screen flex flex-col justify-center items-center">
       <h1>Scopri quanto ne sai della storia sulla grafica</h1>
       <Link href="/game" className="bg-red-50 px-4 py-2">gioca</Link>
-      <div> 
+      <div>
         <div className="flex justify-between">
           <h1>posizione</h1>
           <h1>nickname</h1>
