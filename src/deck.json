@@ -1,117 +1,123 @@
 {
   "deck": [
     {
-      "nomeMazzo": "Introduzione",
+      "nomeMazzo": "industria",
       "carta": [
         {
           "id": 0,
-          "titolo": "Carta Uno Mazzo 1",
-          "descrizione": "Descrizione della carta Uno",
-          "testoSinistra": "stai andando a sinistra",
-          "testoDestra": "stai andando a destra",
-          "img": "/card.png",
+          "numSkipCarte": 4,
+          "skipCarteDirection": 1,
+          "titolo": "Claudio",
+          "descrizione": "Ciao! Sono un fan dei libri, ne hai alcuni?",
+          "testoSinistra": "Non lavoro con i satanisti",
+          "testoDestra": "Tutto ciò che desideri ;)",
+          "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 100,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "popolo": {
-              "destra": 5,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "progresso": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             }
           }
         },
         {
           "id": 1,
-          "numSkipCarte": 3,
-          "skipCarteDirection": true,
-          "titolo": "Sono una carta skip 2 a destra",
-          "descrizione": "se andro a destra skippero delle carte",
-          "testoSinistra": "si",
-          "testoDestra": "no",
-          "img": "/skip.png",
+          "numSkipCarte": 2,
+          "skipCarteDirection": 1,
+          "titolo": "Claudio",
+          "descrizione": "Wow, grazie. Non e’ che hai il libro di hypne… hypne… tomachia ?",
+          "testoSinistra": "Sei sicuro che la vuoi?",
+          "testoDestra": "Certo Tieni",
+          "img": "/claudio.png",
           "indicatore": {
             "etica": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             },
             "popolo": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             },
             "progresso": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             }
           }
         },
         {
-          "id": 0,
-          "titolo": "mi avrestsi skippato 1",
-          "descrizione": "Descrizione della carta Uno",
-          "testoSinistra": "stai andando a sinistra",
-          "testoDestra": "stai andando a destra",
-          "img": "/card.png",
+          "id": 2,
+          "titolo": "Claudio",
+          "numSkipCarte" : 2,
+          "skipCarteDirection": 2,
+          "descrizione": " *Pronunciando male il nome del libro, appare Lucifero* Claudio: Aiutoooooo! * e scappa via*",
+          "testoSinistra": " ",
+          "testoDestra": " ",
+          "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "popolo": {
-              "destra": 5,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "progresso": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             }
           }
         },
         {
-          "id": 0,
-          "titolo": "mi avresti skippato 2",
-          "descrizione": "Descrizione della carta Uno",
-          "testoSinistra": "stai andando a sinistra",
-          "testoDestra": "stai andando a destra",
-          "img": "/card.png",
+          "id": 3,
+          "titolo": "Claudio",
+          "skipCarteDirection":2,
+          "numSkipCarte":2,
+          "descrizione": "Claudio si rigira e va via",
+          "testoSinistra": " ",
+          "testoDestra": " ",
+          "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "popolo": {
-              "destra": 5,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "progresso": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             }
           }
         },
         {
-          "id": 0,
-          "titolo": "eeheh mi hai perso 2 carte",
-          "descrizione": "Descrizione della carta Uno",
-          "testoSinistra": "stai andando a sinistra",
-          "testoDestra": "stai andando a destra",
-          "img": "/card.png",
+          "id": 4,
+          "titolo": "Claudio",
+          "descrizione": "OK torno a pregare satana da solo",
+          "testoSinistra": " ",
+          "testoDestra": " ",
+          "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "popolo": {
-              "destra": 5,
-              "sinistra": -10
+              "destra": 0,
+              "sinistra": 0
             },
             "progresso": {
               "destra": 0,
-              "sinistra": -10
+              "sinistra": 0
             }
           }
         }

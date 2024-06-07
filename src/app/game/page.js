@@ -107,7 +107,7 @@ export default function Game() {
         changeIndicatore(true)
         // Esegui azione di swipe a destra
         //
-        if (carta?.skipCarteDirection == true) {
+        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
           console.log(contatoreCarta)
         }
@@ -119,7 +119,7 @@ export default function Game() {
       } else if (info.offset.x < -100) {
         changeIndicatore(false)
         //
-        if (carta?.skipCarteDirection == false) {
+        if (carta?.skipCarteDirection == 1 || carta?.skipCarteDirection == 2) {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
         } else {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
