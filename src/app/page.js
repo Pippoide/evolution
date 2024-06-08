@@ -19,7 +19,7 @@ async function getData() {
 export default async function Home() {
   const rows = await getData();
   return (
-    <div className="h-screen bg-green-500 w-screen flex flex-col justify-center items-center">
+    <div className="h-screen bg-green-500 w-screen flex flex-col justify-center items-center p-12 md:p-0">
       <h1 className="text-xl">Scopri quanto ne sai della storia sulla grafica</h1>
       <Link href="/game" className="bg-red-50 px-4 py-2 ">Gioca</Link>
       <div className="w-full md:w-1/3">
@@ -28,7 +28,7 @@ export default async function Home() {
           <div className="col-span-5">nickname</div>
           <div className="col-span-2">score</div>
         </div>
-        <div className="grid grid-cols-1 w-full">
+        <div className="grid grid-cols-1 w-full max-h-[50vh] overflow-y-auto ">
           {rows.map((rows, index) => {
             return (
               <div className="grid grid-cols-9  " key={index}>
