@@ -11,10 +11,9 @@ async function getData() {
         return { error };
     }
 }
-const rows = await getData();
 
-export default function Leadboard() {
-
+export default async function Leadboard() {
+    const rows = await getData();
 
     return (
         <div className="w-full h-screen bg-third flex justify-center p-12 md:px-0">
@@ -23,7 +22,7 @@ export default function Leadboard() {
                     <h1 className="font-alfa text-secondary md:text-6xl ">Classifica</h1>
                     <p className="text-secondary text-xs md:text-lg">
                         Qui sono presenti le geste eroiche ti tutti i giocatori che sono riusciti a lasciare un segno nella storia della grafica
-                        </p>
+                    </p>
                 </div>
 
                 <div className=" bg-secondary text-third">
