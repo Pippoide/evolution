@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,7 +7,18 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors:{
+      "primary":"#194219",
+      "primary-light":"#778c2a",
+      "secondary":"#f4ead7",
+      "third":"#272823"
+
+    },
     extend: {
+      fontFamily:{
+        alfa: ['var(--font-alfa)','sans-serif'],
+        rubik:['var(--font-rubik)','sans-serif']
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

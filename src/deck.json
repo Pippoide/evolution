@@ -120,6 +120,28 @@
               "sinistra": 0
             }
           }
+        },
+        {
+          "id": 5,
+          "titolo": "Claudio",
+          "descrizione": "morto a destra",
+          "testoSinistra": " ",
+          "testoDestra": " ",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": -100,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
         }
       ]
     },
