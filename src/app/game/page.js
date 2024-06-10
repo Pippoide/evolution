@@ -188,7 +188,7 @@ export default function Game() {
   }
 
   return (
-    <main className="flex w-full min-h-full flex-col items-center justify-center ">
+    <main className="flex w-full h-svh flex-col items-center justify-center ">
       <div className="sm:w-1/3 w-full h-screen relative flex flex-col justify-between bg-third ">  {/**column */}
         {statusGioco ? (
           <div className="bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
