@@ -204,7 +204,7 @@ export default function Game() {
   }, []);
 
   return (
-    <main className="flex w-full md:h-screen overflow-hidden flex-col items-center justify-center ">
+    <main style={{ height: 'calc(var(--vh) * 100)' }} className="flex w-full  md:h-screen overflow-hidden flex-col items-center justify-center ">
       <div style={{ height: 'calc(var(--vh) * 100)' }} className="sm:w-1/3 w-full h-lvh overflow-hidden relative flex flex-col justify-between bg-third ">  {/**column */}
         {statusGioco ? (
           <div className="bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
