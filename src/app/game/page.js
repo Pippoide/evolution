@@ -187,9 +187,25 @@ export default function Game() {
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
 
+
+  //mobile resize vh viewport
+  useEffect(() => {
+    function setViewportHeight() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    setViewportHeight();
+    window.addEventListener('resize', setViewportHeight);
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+    };
+  }, []);
+
   return (
-    <main className="flex w-full md:h-screen overflow-hidden h-lvh flex-col items-center justify-center ">
-      <div className="sm:w-1/3 w-full h-lvh overflow-hidden relative flex flex-col justify-between bg-third ">  {/**column */}
+    <main className="flex w-full md:h-screen overflow-hidden flex-col items-center justify-center ">
+      <div style={{ height: 'calc(var(--vh) * 100)' }} className="sm:w-1/3 w-full h-lvh overflow-hidden relative flex flex-col justify-between bg-third ">  {/**column */}
         {statusGioco ? (
           <div className="bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
             <form className="flex flex-col" onSubmit={async (event) => {
