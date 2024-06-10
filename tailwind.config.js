@@ -11,7 +11,8 @@ module.exports = {
       "primary":"#194219",
       "primary-light":"#778c2a",
       "secondary":"#f4ead7",
-      "third":"#272823"
+      "third":"#272823",
+      "black-opacity":"rgba(0,0,0,0.5)"
 
     },
     extend: {
