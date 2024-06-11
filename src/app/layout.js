@@ -24,7 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${rubik.variable} ${alfaSlab.variable} font-sans flex justify-center items-center w-full bg-third h-screen `}>{children}</body>
+      <body className={`${rubik.variable} ${alfaSlab.variable} font-sans flex justify-center items-center w-full bg-third h-full `}>{children}</body>
     </html> 
   );
 }
