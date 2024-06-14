@@ -1,5 +1,6 @@
 
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,7 +19,8 @@ module.exports = {
     extend: {
       fontFamily:{
         alfa: ['var(--font-alfa)','sans-serif'],
-        rubik:['var(--font-rubik)','sans-serif']
+        rubik:['var(--font-rubik)','sans-serif'],
+        custom : ['typewriter', 'sans-serif']
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
