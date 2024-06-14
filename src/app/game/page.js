@@ -318,9 +318,18 @@ export default function Game() {
         </div>
 
         {/**text */}
-        <div className="w-full flex flex-col text-center h-1/6 bg-primary font-custom">
-          <h1>{carta.titolo}</h1>
-          <p>{carta.descrizione}</p>
+        <div className="w-full flex h-1/6 bg-primary font-custom justify-center items-center px-6 md:px-12">
+          <div className='relative w-4/6 flex justify-center items-center '>
+            <span className='w-full h-[3px] bg-secondary'></span>
+            <span className='absolute w-[3px] h-[30px] bg-primary-light'></span>
+            <span className='absolute w-[3px] h-[30px] bg-secondary left-0'></span>
+            <span className='absolute w-[3px] h-[30px] bg-secondary right-0'></span>
+
+          </div>
+          <div className='w-2/6 flex justify-center items-center text-xl font-custom text-secondary'>
+            <span>1922</span>
+          </div>
+         
         </div>
       </div>
     </main>
