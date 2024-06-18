@@ -15,14 +15,14 @@
           "indicatore": {
             "etica": {
               "destra": 10,
-              "sinistra": -10
+              "sinistra": 0
             },
             "popolo": {
               "destra": 10,
-              "sinistra": -10
+              "sinistra": 0
             },
             "progresso": {
-              "destra": 10,
+              "destra": 0,
               "sinistra": -10
             }
           }
@@ -38,7 +38,7 @@
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 0,
+              "destra": 10,
               "sinistra": 0
             },
             "popolo": {
@@ -47,7 +47,7 @@
             },
             "progresso": {
               "destra": 0,
-              "sinistra": 0
+              "sinistra": 10
             }
           }
         },

@@ -28,7 +28,7 @@ export default function IconEtica({ progress }) {
     }, [progress]); // Questa useEffect dipende da progress
 
     return (
-        <div className='w-full h-full  '>
+        <div className='w-full h-10  '>
             <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180 ">
                 <defs>
                     <clipPath id='etica'>

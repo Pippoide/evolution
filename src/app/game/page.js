@@ -8,9 +8,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import actionRevalidateTag from "../actions";
-import IconProgress from "../IconProgress";
-import IconEtica from "../IconEtica";
-import IconPopolo from '../IconPopolo';
+import IconProgress from "../iconProgress";
+import IconEtica from "../iconEtica";
+import IconPopolo from '../iconPopolo';
+import DotAdvice from '../dotAdvice';
 export default function Game() {
 
   const decks = require("../../deck.json")
@@ -29,6 +30,11 @@ export default function Game() {
   const [animationNewCard, setAnimationNewCard] = useState(true)
   const [score, setScore] = useState(0)
   const [nomeGiocatore, setNomeGiocatore] = useState('')
+
+  const [adviceProgresso, setAdviceProgresso] = useState(false);
+  const [adviceEtica, setAdviceEtica] = useState(false);
+  const [advicePopolo, setAdvicePopolo] = useState(false);
+
 
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
@@ -68,6 +74,7 @@ export default function Game() {
     checkIndicatore();
   }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]);
 
+  //progress bar
   const incrementoSwiper = 100 / cartaLength;
   const [positionSwiper, setPositionSwiper] = useState(0)
   useEffect(() => {
@@ -78,7 +85,6 @@ export default function Game() {
   useEffect(() => {
     setAnimationNewCard(true)
     console.log("inizio animazione")
-
   }, [contatoreMazzo])
 
   const checkIndicatore = () => {
@@ -122,8 +128,62 @@ export default function Game() {
     }
   }
 
+  //handledrag durante la carta è trascinata
+  const handleDrag = (event, info) => {
+    console.log(info.offset.x)
+    if (!carta?.evento) { //controllo non è evento, se è evento non ha cambi d'indicatore
+      if (info.offset.x > 100) { //carta a destra
+        if (carta.indicatore.etica.destra != 0) {
+          setAdviceEtica(true)
+        }
+        else {
+          setAdviceEtica(false)
+        }
+        if (carta.indicatore.popolo.destra != 0 ) {
+          setAdvicePopolo(true)
+        }
+        else {
+          setAdvicePopolo(false)
+        }
+        if (carta.indicatore.progresso.destra != 0 ) {
+          setAdviceProgresso(true)
+        }
+        else {
+          setAdviceProgresso(false)
+        }
+      }
+      else {
+        if(info.offset.x < -100){
+          if (carta.indicatore.etica.sinistra != 0) {
+            setAdviceEtica(true)
+          }
+          else {
+            setAdviceEtica(false)
+          }
+          if (carta.indicatore.popolo.sinistra != 0 ) {
+            setAdvicePopolo(true)
+          }
+          else {
+            setAdvicePopolo(false)
+          }
+          if (carta.indicatore.progresso.sinistra != 0 ) {
+            setAdviceProgresso(true)
+          }
+          else {
+            setAdviceProgresso(false)
+          }
+        }
+      }
+    }
+    if(info.offset.x < 100 && info.offset.x > -100){
+      setAdviceEtica(false)
+      setAdvicePopolo(false)
+      setAdviceProgresso(false)
+    }
+  };
+
   const handleDragEnd = (event, info) => {
-    setScore(prev => prev + 1)
+    console.log(info.offset.x)
     if (!carta?.evento) {
       if (info.offset.x > 100) {
         changeIndicatore(true)
@@ -137,6 +197,7 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
         }
         checkNextCarta()
+        setScore(prev => prev + 1)
         console.log("Swipe a destra!");
       } else if (info.offset.x < -100) {
         changeIndicatore(false)
@@ -147,6 +208,7 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
         }
         checkNextCarta()
+        setScore(prev => prev + 1)
         //nuova carta
         // Esegui azione di swipe a sinistra
         console.log("Swipe a sinistra!");
@@ -162,7 +224,12 @@ export default function Game() {
         setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
       }
       checkNextCarta()
+      setScore(prev => prev + 1) //controllare se si riporta la carta evento al centro se conta lo score
     }
+
+    setAdviceEtica(false)
+    setAdvicePopolo(false)
+    setAdviceProgresso(false)
 
   };
 
@@ -202,26 +269,11 @@ export default function Game() {
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
 
-  //mobile resize vh viewport
-  useEffect(() => {
-    function setViewportHeight() {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    }
-
-    setViewportHeight();
-    window.addEventListener('resize', setViewportHeight);
-
-    return () => {
-      window.removeEventListener('resize', setViewportHeight);
-    };
-  }, []);
-
   return (
     <main className="flex w-full h-full md:h-screen overflow-hidden flex-col items-center justify-center ">
       <div className="sm:w-1/3 w-full h-full overflow-hidden relative flex flex-col justify-between bg-third ">  {/**column */}
 
-        {/**start form losing */}
+        {/**form end gamea*/}
         {statusGioco ? (
           <div className="bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
             <form className="flex flex-col" onSubmit={async (event) => {
@@ -240,23 +292,23 @@ export default function Game() {
             </form>
           </div>) : ""}
 
-        {/**start icons */}
+        {/**icons */}
         <div className="w-full  bg-primary px-6 py-6 md:px-12 flex flex-row justify-evenly items-center">
-          <div className="w-8 h-8">
+          <div className="w-10 items-center flex flex-col">
             <IconEtica progress={indicatoreEtica}> </IconEtica>
-            <span>{indicatoreEtica}</span>
+            <DotAdvice state={adviceEtica} />
           </div>
-          <div className="w-8 h-8">
-            <IconProgress  progress={indicatoreProgresso}></IconProgress>
-            <span>{indicatoreProgresso}</span>
+          <div className="w-10 items-center flex flex-col">
+            <IconProgress progress={indicatoreProgresso}></IconProgress>
+            <DotAdvice state={adviceProgresso} />
           </div>
-          <div className="w-8 h-8">
+          <div className="w-10 items-center flex flex-col">
             <IconPopolo progress={indicatorePopolo}></IconPopolo>
-            <span>{indicatorePopolo}</span>
+            <DotAdvice state={advicePopolo} />
           </div>
         </div>
 
-        {/**start card */}
+        {/**card */}
         <div className='w-full h-full flex justify-center flex-col items-center'>
           <div className="w-full flex flex-col text-center font-custom ">
             <h1 className='text-secondary text-5xl md:px-12 px-6'>{carta.titolo}</h1>
@@ -279,6 +331,7 @@ export default function Game() {
                     dragConstraints={{ left: 0, right: 0 }}
                     dragControls={controls}
                     onDragEnd={handleDragEnd}
+                    onDrag={handleDrag}
                     className="w-full aspect-square relative z-10"
                     style={{
                       x,
@@ -329,7 +382,7 @@ export default function Game() {
           </div>
         </div>
 
-        {/**text */}
+        {/**progress bar */}
         <div className="w-full flex h-auto bg-primary font-custom justify-center items-center px-6 py-6 md:px-12">
           <div className='relative w-[80%] flex justify-center items-center '>
             <span className='w-full h-[3px] bg-secondary'></span>
