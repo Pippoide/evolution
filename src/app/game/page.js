@@ -8,6 +8,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import actionRevalidateTag from "../actions";
+import IconProgress from "../IconProgress";
+import IconEtica from "../IconEtica";
+import IconPopolo from '../IconPopolo';
 export default function Game() {
 
   const decks = require("../../deck.json")
@@ -33,6 +36,10 @@ export default function Game() {
   const mazzoLength = mazzo.carta.length; //Totale carte nel mazzo
   const carta = mazzo.carta[contatoreCarta];
 
+  var cartaLength = 0 //totale carte di tutti i mazzi
+  for (var i = 0; i < deckLength; i++) {
+    cartaLength += decks.deck[i].carta.length
+  }
 
   /** variabili Morte*/
   const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
@@ -60,6 +67,12 @@ export default function Game() {
     // Dopo che lo stato è stato effettivamente aggiornato, esegui checkIndicatore
     checkIndicatore();
   }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]);
+
+  const incrementoSwiper = 100 / cartaLength;
+  const [positionSwiper, setPositionSwiper] = useState(0)
+  useEffect(() => {
+    setPositionSwiper(score * incrementoSwiper);
+  }, [score])
 
 
   useEffect(() => {
@@ -189,7 +202,6 @@ export default function Game() {
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
 
-
   //mobile resize vh viewport
   useEffect(() => {
     function setViewportHeight() {
@@ -229,17 +241,17 @@ export default function Game() {
           </div>) : ""}
 
         {/**start icons */}
-        <div className="w-full h-1/6 bg-primary p-2 flex flex-row justify-evenly items-center">
-          <div className="w-10 h-10 relative flex flex-col">
-            <Image alt="asd" src="/bilancia.svg" fill className="point-event-none" draggable="false"></Image>
+        <div className="w-full  bg-primary px-6 py-6 md:px-12 flex flex-row justify-evenly items-center">
+          <div className="w-8 h-8">
+            <IconEtica progress={indicatoreEtica}> </IconEtica>
             <span>{indicatoreEtica}</span>
           </div>
-          <div className="w-10 h-10 relative flex flex-col">
-            <Image alt="asd" src="/scienza.svg" fill className="point-event-none" draggable="false"></Image>
+          <div className="w-8 h-8">
+            <IconProgress  progress={indicatoreProgresso}></IconProgress>
             <span>{indicatoreProgresso}</span>
           </div>
-          <div className="w-10 h-10 relative flex flex-col">
-            <Image alt="asd" src="/persona.svg" fill className="point-event-none" draggable="false"></Image>
+          <div className="w-8 h-8">
+            <IconPopolo progress={indicatorePopolo}></IconPopolo>
             <span>{indicatorePopolo}</span>
           </div>
         </div>
@@ -295,9 +307,9 @@ export default function Game() {
                     {/** carte */}
                     <div className="w-full aspect-square relative  ">
                       {!carta.testoDestra ? ("") :
-                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none  absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                       {!carta.testoSinistra ? ("") :
-                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
                       <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
                     </div>
                   </motion.div>
@@ -318,18 +330,16 @@ export default function Game() {
         </div>
 
         {/**text */}
-        <div className="w-full flex h-1/6 bg-primary font-custom justify-center items-center px-6 md:px-12">
-          <div className='relative w-4/6 flex justify-center items-center '>
+        <div className="w-full flex h-auto bg-primary font-custom justify-center items-center px-6 py-6 md:px-12">
+          <div className='relative w-[80%] flex justify-center items-center '>
             <span className='w-full h-[3px] bg-secondary'></span>
-            <span className='absolute w-[3px] h-[30px] bg-primary-light'></span>
+            <span id="swiper" className='absolute w-[3px] h-[30px] bg-primary-light z-100' style={{ left: `${positionSwiper}%` }}></span>
             <span className='absolute w-[3px] h-[30px] bg-secondary left-0'></span>
             <span className='absolute w-[3px] h-[30px] bg-secondary right-0'></span>
-
           </div>
-          <div className='w-2/6 flex justify-center items-center text-xl font-custom text-secondary'>
+          <div className='w-[20%] flex justify-end text-xl font-custom text-secondary'>
             <span>1922</span>
           </div>
-         
         </div>
       </div>
     </main>

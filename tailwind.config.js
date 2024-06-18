@@ -17,6 +17,11 @@ module.exports = {
 
     },
     extend: {
+      aspectRatio:{
+        aspectRatio:{
+          '4/5': '4 / 10'
+        }
+      },
       fontFamily:{
         alfa: ['var(--font-alfa)','sans-serif'],
         rubik:['var(--font-rubik)','sans-serif'],

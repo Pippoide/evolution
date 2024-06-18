@@ -13,7 +13,7 @@ export default async function Home() {
           <div className="h-3/5 flex flex-col justify-center items-center my-6 md:my-3">
             <div className="flex flex-col space-y-4 my-6 md:my-12">
               <img className="w-full" src="cardHome.png" />
-              <p className="text-md md:text-lg w.full text-center mb-6 inline-block">
+              <p className="text-sm md:text-base lg:text-lg w.full text-center mb-6 inline-block">
                 Vai al tuo lavoro di commesso tipografo e fai scorrere le tue dita a sinistra o a destra, rispondendo cortesemente ai clienti. Modifica l’andamento della storia della grafica e cerca di scoprire la sua fine…
               </p>
             </div>

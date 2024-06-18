@@ -35,23 +35,7 @@ body {
     text-wrap: balance;
   }
 }
-.box {
-  width: 400px;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-}
-.box::before {
-  content: "";
-  width: 300px;
-  height: 300px;
-  background: #ffd100;
-  position: absolute;
-  overflow: hidden;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: fill 3s ease-out infinite;
-}
+
 
 @keyframes fill {
   from {
@@ -62,23 +46,10 @@ body {
   }
 }
 
-.scienza-ctr{
-  width: 448px;
-  height: 512px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
 
-.scienza{
-  background-color: red;
-  position: absolute;
-  clip-path: polygon(288.0000000000% 0.0000000000%, 160.0000000000% 0.0000000000%, 128.0000000000% 0.0000000000%, 96.0000000000% 32.0000000000%, 128.0000000000% 64.0000000000%, 128.0000000000% 196.8000000000%, 118.5000000000% 230.3000000000%, 10.3000000000% 406.2000000000%, 0.0000000000% 442.6000000000%, 69.4000000000% 512.0000000000%, 378.6000000000% 512.0000000000%, 448.0000000000% 442.6000000000%, 437.7000000000% 406.2000000000%, 329.5000000000% 230.4000000000%, 320.0000000000% 196.9000000000%, 320.0000000000% 64.0000000000%, 352.0000000000% 32.0000000000%, 320.0000000000% 0.0000000000%, 288.0000000000% 0.0000000000%);
-
-}
 
 .font-custom{
   line-height: 1em;
 }
+
+

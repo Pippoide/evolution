@@ -3,20 +3,16 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export default function illustrationProgress({ progress2 }) {
+export default function IconProgress({ progress }) {
 
-  const [progress, setProgress] = useState(0); // Stato per controllare l'altezza del rettangolo
+  const [isMounted, setIsMounted] = useState(false); // Stato per controllare se il componente è montato
   const svgRef = useRef(null); // Riferimento per il SVG
 
-  // Incremento del progresso ogni secondo
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress(prev => (prev < 100 ? prev + 10 : 0)); // Incrementa il progresso di 10 ogni secondo
-    }, 1000);
-
-    return () => clearInterval(interval); // Pulizia dell'intervallo
+    setIsMounted(true);
   }, []);
 
+  // Incremento del progresso ogni secondo
   // Aggiorna le dimensioni del rect in base al progresso
   useEffect(() => {
     if (svgRef.current) {
@@ -33,11 +29,11 @@ export default function illustrationProgress({ progress2 }) {
   }, [progress]); // Questa useEffect dipende da progress
 
   return (
-    <div className='w-16 h-16'>
+    <div className='w-full h-full  '>
       <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180 ">
         <defs>
           <clipPath id='progresso'>
-            <rect id="clip-rect" width={0} height={0} x={0} y={0} />
+            <rect className={isMounted ? 'transition-all ease-out duration-300' : ''} id="clip-rect" width={0} height={0} x={0} y={0} />
           </clipPath>
         </defs>
         <g fill='#f4ead7' >

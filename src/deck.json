@@ -14,16 +14,16 @@
           "img": "/pino.svg",
           "indicatore": {
             "etica": {
-              "destra": 0,
-              "sinistra": 0
+              "destra": 10,
+              "sinistra": -10
             },
             "popolo": {
-              "destra": 0,
-              "sinistra": 0
+              "destra": 10,
+              "sinistra": -10
             },
             "progresso": {
-              "destra": 0,
-              "sinistra": 0
+              "destra": 10,
+              "sinistra": -10
             }
           }
         },
