@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export default function illustrationProgress({ progress2 }) {
+export default function Test({ progress2 }) {
 
   const [progress, setProgress] = useState(0); // Stato per controllare l'altezza del rettangolo
   const svgRef = useRef(null); // Riferimento per il SVG
