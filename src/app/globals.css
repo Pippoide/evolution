@@ -8,6 +8,9 @@
     font-family: typewriter;
     font-weight: 400;
     src: url(/fonts/Typewriter.otf) format("otf");
+    src: url(/fonts/Typewriter.ttf) format("truetype");
+    src: url(/fonts/Typewriter.woff) format("woff");
+    src: url(/fonts/Typewriter.eot);
   }
 }
 
