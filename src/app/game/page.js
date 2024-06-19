@@ -86,7 +86,6 @@ export default function Game() {
 
   useEffect(() => {
     setAnimationNewCard(true)
-    console.log("inizio animazione")
   }, [contatoreMazzo])
 
   const checkIndicatore = () => {
@@ -132,7 +131,6 @@ export default function Game() {
 
   //handledrag durante la carta è trascinata
   const handleDrag = (event, info) => {
-    console.log(info.offset.x)
     if (!carta?.evento) { //controllo non è evento, se è evento non ha cambi d'indicatore
       if (info.offset.x > 100) { //carta a destra
         if (carta.indicatore.etica.destra != 0) {
@@ -190,10 +188,10 @@ export default function Game() {
       if (info.offset.x > 100) {
         changeIndicatore(true)
         // Esegui azione di swipe a destra
-        //
-        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) {
-          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
-          console.log(contatoreCarta)
+        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) //swipe a destra
+        {
+          setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //carta skippata
+          console.log("Contatore Carta " + contatoreCarta)
         }
         else {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
@@ -266,7 +264,6 @@ export default function Game() {
   //animazione nuove mazzo
   const handleAnimationComplete = (x) => {
     setTimeout(() => {
-      console.log("L'animazione è terminata!");
       setAnimationNewCard(false)
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
@@ -275,26 +272,26 @@ export default function Game() {
   const [titleHeight, setTitleHeight] = useState(0);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
 
-useEffect(()=>{
-  const handleResize = () => {
-    if (containerRef.current) { //se esiste l'elemento
-      const containerHeight = containerRef.current.clientHeight; //altezza del div contenitore
-      const cardHeight = containerRef.current.querySelector('.cardSpecial').clientHeight; //altezza della carta
-      const remainingHeight = containerHeight - cardHeight; //altezza rimanente nel container
-      const remainingHeightScale= ((100*remainingHeight)/containerHeight);
-      const titleHeight = remainingHeightScale * 0.30 // 25% for title
-      const descriptionHeight = remainingHeightScale * 0.60; // 15% for description
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) { //se esiste l'elemento
+        const containerHeight = containerRef.current.clientHeight; //altezza del div contenitore
+        const cardHeight = containerRef.current.querySelector('.cardSpecial').clientHeight; //altezza della carta
+        const remainingHeight = containerHeight - cardHeight; //altezza rimanente nel container
+        const remainingHeightScale = ((100 * remainingHeight) / containerHeight);
+        const titleHeight = remainingHeightScale * 0.30 // 25% for title
+        const descriptionHeight = remainingHeightScale * 0.60; // 15% for description
 
-      setTitleHeight(titleHeight);
-      setDescriptionHeight(descriptionHeight);
-    }
-  };
+        setTitleHeight(titleHeight);
+        setDescriptionHeight(descriptionHeight);
+      }
+    };
 
-  window.addEventListener('resize', handleResize);
-  handleResize();
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
-  return () => window.removeEventListener('resize', handleResize);
-})
+    return () => window.removeEventListener('resize', handleResize);
+  })
 
 
   return (
@@ -303,7 +300,7 @@ useEffect(()=>{
 
         {/**form end gamea*/}
         {statusGioco ? (
-          <div className="bg-red-500 absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
+          <div className="bg-primary absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
             <form className="flex flex-col" onSubmit={async (event) => {
               event.preventDefault();
               try {
@@ -337,25 +334,22 @@ useEffect(()=>{
         </div>
 
         {/**card */}
-        <div ref={containerRef}  className='w-full h-full flex justify-between flex-col items-center py-3 px-12 md:px-16'>
+        <div ref={containerRef} className='w-full h-full flex justify-between flex-col items-center py-3 px-12 md:px-16'>
           {/** titolo carta */}
-          <div className="w-full flex flex-col justify-center items-center text-center font-custom" style={{ height: titleHeight+"%" }}>
+          <div className="w-full flex flex-col justify-center items-center text-center font-custom" style={{ height: titleHeight + "%" }}>
             <h1 className='font-custom text-secondary text-3xl '>{carta.titolo}</h1>
           </div>
-          
+
           {statusGioco ? (
             <div>
               <div className="w-full aspect-4/5 relative z-10 ">
                 <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
               </div>
             </div>) : (
-            <div className="w-full cardSpecial aspect-4/5 relative bg-red-600 " onClick={handleFlip}>
-              <div className={`relative w-full h-full duration-700 transform-style-preserve-3d ${flipped ? 'rotate-y-180' : ''}`}
-              >
-                <div className="absolute backface-hidden w-full h-full bg-red-500 flex items-center justify-center rotate-y-180">
-                  CIAO
-                </div>
-                <div className="absolute backface-hidden w-full h-full flex items-center justify-center">
+            <div className="w-full cardSpecial relative aspect-4/5 " onClick={handleFlip}>
+              <div className="z-50 absolute w-full h-full transition-all ease-out duration-300"
+                style={{ transformStyle: 'preserve-3d', transform: flipped ? "rotateY(180deg)" : "" }}>
+                <div id='front' className=" absolute w-full h-full flex items-center justify-center" style={{ backfaceVisibility: 'hidden' }}>
                   <motion.div
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
@@ -374,7 +368,7 @@ useEffect(()=>{
                       {animationNewCard ? (
                         mazzo.carta.map((x, index) => { //matteo qui non va
                           return <motion.div
-                            className="w-full rounded-3xl aspect-4/5 absolute bg-red-600"
+                            className="w-full rounded-3xl aspect-4/5 absolute "
                             key={index}
                             initial={{ opacity: 0, y: -100 }}
                             exit={{ opacity: 0, y: 100 }}
@@ -397,7 +391,9 @@ useEffect(()=>{
                     </div>
                   </motion.div>
                 </div>
-
+                <div id="back" className="absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                  CIAO
+                </div>
               </div>
 
               {/**carta fissa retro */}
@@ -407,9 +403,9 @@ useEffect(()=>{
                 </div>
               </div>
             </div>)}
-          
+
           {/** descrizione carta */}
-          <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight+"%"  }}>
+          <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
             <p className='text-secondary text-lg !leading-5'> {carta.descrizione}</p>
           </div>
 
