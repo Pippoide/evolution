@@ -78,7 +78,7 @@
         {
           "id": 3,
           "titolo": "Claudio",
-          "skipCarteDirection": 2,
+          "skipCarteDirection": 0,
           "numSkipCarte": 2,
           "descrizione": "Claudio si rigira e va via",
           "testoSinistra": " ",
@@ -122,17 +122,39 @@
           }
         },
         {
-          "id": 6,
+          "id": 5,
           "titolo": "Pino",
           "descrizione": "ecco la tua rivista",
           "testoSinistra": "Aprila",
           "testoDestra": "Metti da parte",
-          "skipCarteDirection": 0,
+          "skipCarteDirection": 2,
           "numSkipCarte": 2,
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 6,
+          "titolo": "Pino",
+          "descrizione": "*Annuncio, Aldo Manuzio e Francesco Griffo cercano collaboratore per  diventare ricchi in 5 min, invia i tuoi soldi al numero +39 092…*",
+          "testoSinistra": "Chiedi a Pino di non mandarti piu’ le pubblicita’",
+          "testoDestra": "Invia i tuoi soldi ",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
               "sinistra": 0
             },
             "popolo": {
@@ -148,13 +170,15 @@
         {
           "id": 7,
           "titolo": "Pino",
-          "descrizione": "*Annuncio, Aldo Manuzio e Francesco Griffo cercano collaboratore per  diventare ricchi in 5 min, invia i tuoi soldi al numero +39 092…*",
-          "testoSinistra": "Chiedi a Pino di non mandarti piu’ le pubblicita’",
-          "testoDestra": "Invia i tuoi soldi ",
+          "descrizione": "“Mi stavo dimenticando, un certo Marcantonio mi ha chiesto se potevi stampare una sua “rivista speciale”",
+          "testoSinistra": "Si, certo perchè no?",
+          "testoDestra": "Speciale in che senso? ",
+          "skipCarteDirection": 1,
+          "numSkipCarte": 2,
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
+              "destra": 0,
               "sinistra": 0
             },
             "popolo": {
@@ -170,37 +194,13 @@
         {
           "id": 8,
           "titolo": "Pino",
-          "descrizione": "“Mi stavo dimenticando, un certo Marcantonio mi ha chiesto se potevi stampare una sua “rivista speciale”",
-          "testoSinistra": "Si, certo perchè no?",
-          "testoDestra": "Speciale in che senso? ",
-          "skipCarteDirection": 1,
-          "numSkipCarte": 2,
-          "img": "/claudio.png",
-          "indicatore": {
-            "etica": {
-              "destra": 10,
-              "sinistra": 0
-            },
-            "popolo": {
-              "destra": 0,
-              "sinistra": 0
-            },
-            "progresso": {
-              "destra": 0,
-              "sinistra": 0
-            }
-          }
-        },
-        {
-          "id": 9,
-          "titolo": "Pino",
           "descrizione": "“Diciamo solo rivolto a un pubblico di maschietti, ti pagherà bene”",
           "testoSinistra": "Ok, cosa non si fa per i soldi ",
           "testoDestra": "Cosa, oddio no? e se lo sapesse la chiesa",
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
+              "destra": 0,
               "sinistra": 0
             },
             "popolo": {
@@ -222,31 +222,7 @@
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
-              "destra": 10,
-              "sinistra": 0
-            },
-            "popolo": {
               "destra": 0,
-              "sinistra": 0
-            },
-            "progresso": {
-              "destra": 0,
-              "sinistra": 0
-            }
-          }
-        },
-        {
-          "id": 9,
-          "titolo": "Proprietario",
-          "descrizione": " Beh, a prescindere non mi importa niente! HAHAHA! Ho portato una sorpresa per te *ci sono 2 pacchi per terra*",
-          "testoSinistra": "Apri pacco a sinistra",
-          "testoDestra": "Apri il pacco a destra",
-          "skipCarteDirection": 0,
-          "numSkipCarte": 2,
-          "img": "/claudio.png",
-          "indicatore": {
-            "etica": {
-              "destra": 10,
               "sinistra": 0
             },
             "popolo": {
@@ -261,6 +237,30 @@
         },
         {
           "id": 10,
+          "titolo": "Proprietario",
+          "descrizione": " Beh, a prescindere non mi importa niente! HAHAHA! Ho portato una sorpresa per te *ci sono 2 pacchi per terra*",
+          "testoSinistra": "Apri pacco a sinistra",
+          "testoDestra": "Apri il pacco a destra",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 11,
           "titolo": "Proprietario",
           "descrizione": "Il pacco esplode e il negozio va a fuoco. Sei licenziato",
           "testoSinistra": " ",
@@ -282,7 +282,7 @@
           }
         },
         {
-          "id": 10,
+          "id": 12,
           "titolo": "Proprietario",
           "descrizione": "Uffa, hai indovinato. Tieniti quel coso, me l’ha regalato il mio amico Gutenberg",
           "testoSinistra": "hai acquisito la stampante a caratteri mobili",
@@ -304,7 +304,7 @@
           }
         },
         {
-          "id": 10,
+          "id": 13,
           "titolo": "Gianmarco",
           "descrizione": "Ho saputo che voi avete la nuova stampate a caratteri mobili!",
           "testoSinistra": "No *è strano il vecchietto*",
@@ -328,11 +328,81 @@
           }
         },
         {
-          "id": 10,
+          "id": 14,
           "titolo": "Gianmarco",
           "descrizione": "Allora vi serve per forza il nuovo font del mio amico Caslon!",
           "testoSinistra": "Certo perche’ no? ",
           "testoDestra": "Vai via da qui brutta cornacchia!",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 15,
+          "titolo": "Gianmarco",
+          "descrizione": "Ti mostra il font di Caslon",
+          "testoSinistra": "Beh non e’ mica un Baskerville",
+          "testoDestra": "Lo prendo, faro ingelosire tutti i Bodoniani",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 16,
+          "titolo": "Gastoro",
+          "descrizione": "Hey tu, per domani mi servono la stampa del mio Feuilletons,  nel carattere più costoso che hai",
+          "testoSinistra": "Utilizza il Bodoni e fagli un prezzo onesto",
+          "testoDestra": "Utilizza l’Egiziano e fagli pagare il doppio",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 17,
+          "titolo": "Gastoro",
+          "descrizione": "Wow povero, sei davvero bravo con le tue mani!",
+          "testoSinistra": "grazie credo…",
+          "testoDestra": "grazie credo…",
           "skipCarteDirection": 0,
           "numSkipCarte": 2,
           "img": "/claudio.png",
@@ -352,11 +422,241 @@
           }
         },
         {
-          "id": 10,
-          "titolo": "Gianmarco",
-          "descrizione": "Ti mostra il font di Caslon",
-          "testoSinistra": "Beh non e’ mica un Baskerville",
-          "testoDestra": "Lo prendo, faro ingelosire tutti i Bodoniani",
+          "id": 18,
+          "titolo": "Gastoro",
+          "descrizione": "Pensi che sono stupido e non so che mi vuoi fregare?!",
+          "testoSinistra": "Ma che dice, io davvero…",
+          "testoDestra": "Ha ragione, mi scusi non accadrà più",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 19,
+          "titolo": "Eleonora",
+          "descrizione": "“Egualitè, Fraternitè, Libertè",
+          "testoSinistra": "Ehh, di cosa stai parlando?",
+          "testoDestra": "Sono con te, Viva la Francia rivoluzionaria",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 20,
+          "titolo": "Eleonora",
+          "descrizione": "RIVOLUZIONE, *sottovoce* mi aiutare a rendere indimenticabile il mio manifesto?",
+          "testoSinistra": "Più grande, meglio è?",
+          "testoDestra": "Ho in mente una idea nuova, ti fidi di me?",
+          "skipCarteDirection": 1,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 21,
+          "titolo": "Eleonora",
+          "descrizione": "Sono disperata, vai!",
+          "testoSinistra": "Provo a cambiare formato e aggiungo i disegni?",
+          "testoDestra": "Scrivo il motto “Se non hanno più pane, che mangino brioche”",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 22,
+          "titolo": "Pino",
+          "descrizione": "E’ arrivato nuovo settimanale",
+          "testoSinistra": "Metti da parte",
+          "testoDestra": "Aprila",
+          "skipCarteDirection": 1,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 23,
+          "titolo": "Pino",
+          "descrizione": "*Ricercato Francesco Griffo per schema piramidale. Denunciato dal suo compagno d’affari: ” Non me l’aspettavo, dovevamo truffarli insieme!” ",
+          "testoSinistra": " ",
+          "testoDestra": " ",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 24,
+          "titolo": "Francesco",
+          "descrizione": "Sappiamo che siete voi ad aver pubblicato la rivista sconcia di MarcoAntonio! Siete in arresto!",
+          "testoSinistra": "No, non sono stato io, è stato Pino",
+          "testoDestra": "Si è vero, la prego non mi uccida!",
+          "skipCarteDirection": 1,
+          "numSkipCarte": 3,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 25,
+          "titolo": "Francesco",
+          "descrizione": "*senta io la lascio, in pace solo se mi da una copia*",
+          "testoSinistra": "Accusalo di essere un corrotto",
+          "testoDestra": "Consegnali la copia",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 26,
+          "titolo": "Francesco",
+          "descrizione": "Stia zitto, l’arresto immediatamente",
+          "testoSinistra": "Morto: Sei stato arrestato",
+          "testoDestra": "Morto: Sei stato arrestato",
+          "skipCarteDirection":0,
+          "numSkipCarte":2,
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 27,
+          "titolo": "Pino",
+          "descrizione": "Non è vero, aiutooooo!",
+          "testoSinistra": "*pino corre via, inseguito dal soldato*",
+          "testoDestra": "*pino corre via, inseguito dal soldato*",
+          "img": "/claudio.png",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 28,
+          "titolo": "Claudio",
+          "descrizione": "Senti mi e’ venuta una idea pazzesca! Facciamo le copertine disegnate?!",
+          "testoSinistra": "No vabbe’ e’ geniale! ",
+          "testoDestra": "Sai dove portrava l’ombrello mio nonno?",
           "img": "/claudio.png",
           "indicatore": {
             "etica": {

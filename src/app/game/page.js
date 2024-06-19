@@ -77,10 +77,11 @@ export default function Game() {
   }, [indicatoreEtica, indicatorePopolo, indicatoreProgresso]);
 
   //progress bar
+  //
   const incrementoSwiper = 100 / cartaLength;
   const [positionSwiper, setPositionSwiper] = useState(0)
   useEffect(() => {
-    setPositionSwiper(score * incrementoSwiper);
+    setPositionSwiper((carta.id) * incrementoSwiper);
   }, [score])
 
 
@@ -185,10 +186,10 @@ export default function Game() {
   const handleDragEnd = (event, info) => {
     console.log(info.offset.x)
     if (!carta?.evento) {
-      if (info.offset.x > 100) {
+      if (info.offset.x > 100) { //carta trascinata a destra
         changeIndicatore(true)
         // Esegui azione di swipe a destra
-        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) //swipe a destra
+        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) //swipe a destra 0(entrambi i lati) 2(se scegli di andare a destra salti delle carte)
         {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //carta skippata
           console.log("Contatore Carta " + contatoreCarta)
@@ -202,7 +203,7 @@ export default function Game() {
       } else if (info.offset.x < -100) {
         changeIndicatore(false)
         //
-        if (carta?.skipCarteDirection == 1 || carta?.skipCarteDirection == 2) {
+        if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 1) { //swipe a sinistra 0(entrambi i lati) 1 (se scegli di andare a sinistra salti delle carte)
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
         } else {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
@@ -217,7 +218,7 @@ export default function Game() {
       x.set(0);
     } else {
       console.log("carta evneto")
-      if (carta?.skipCarteDirection == false) {
+      if (carta?.skipCarteDirection == true) {
         setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
       }
       else {
@@ -348,8 +349,13 @@ export default function Game() {
             </div>) : (
             <div className="w-full cardSpecial relative aspect-4/5 " onClick={handleFlip}>
               <div className="z-50 absolute w-full h-full transition-all ease-out duration-300"
-                style={{ transformStyle: 'preserve-3d', transform: flipped ? "rotateY(180deg)" : "" }}>
-                <div id='front' className=" absolute w-full h-full flex items-center justify-center" style={{ backfaceVisibility: 'hidden' }}>
+                style={{ 
+                  transform: flipped ? "rotateY(180deg)" : "",
+                  WebkitTransform: flipped ? "rotateY(180deg)" : "",
+                  transformStyle: 'preserve-3d',
+                  WebkitTransformStyle: 'preserve-3d'}}>
+                <div id='front' className=" absolute w-full h-full flex items-center justify-center" 
+                      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                   <motion.div
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
@@ -391,7 +397,8 @@ export default function Game() {
                     </div>
                   </motion.div>
                 </div>
-                <div id="back" className="absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                <div id="back" className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180" 
+                      style={{backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                   CIAO
                 </div>
               </div>
