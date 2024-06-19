@@ -2,15 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   @font-face {
     font-family: typewriter;
     font-weight: 400;
-    src: url(/fonts/Typewriter.otf) format("otf");
-    src: url(/fonts/Typewriter.ttf) format("truetype");
-    src: url(/fonts/Typewriter.woff) format("woff");
-    src: url(/fonts/Typewriter.eot);
+    src: url("/fonts/typewriter-webfont.eot") format();
+    src:
+      url("/fonts/typewriter-webfont.eot?#iefix") format("embedded-opentype"),
+      url("/fonts/typewriter-webfont.ttf") format("truetype"),
+      url("/fonts/typewriter-webfont.woff2") format("woff2"),
+      url("/fonts/typewriter-webfont.woff") format("woff"),
+      url("/fonts/typewriter-webfont.svg#svgFontName") format("svg");
   }
 }
 
@@ -39,20 +41,15 @@ body {
   }
 }
 
-
 @keyframes fill {
   from {
-    top:900px;
+    top: 900px;
   }
-  to{
+  to {
     top: 0px;
   }
 }
 
-
-
-.font-custom{
+.font-custom {
   line-height: 1em;
 }
-
-
