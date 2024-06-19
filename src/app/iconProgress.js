@@ -29,7 +29,7 @@ export default function IconProgress({ progress }) {
   }, [progress]); // Questa useEffect dipende da progress
 
   return (
-    <div className='w-full h-10  '>
+    <div className='w-full h-8/10'>
       <svg ref={svgRef} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64 ">
         <defs>
           <clipPath id='progresso'>

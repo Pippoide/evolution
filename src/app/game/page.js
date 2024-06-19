@@ -12,6 +12,8 @@ import IconProgress from "../iconProgress";
 import IconEtica from "../iconEtica";
 import IconPopolo from '../iconPopolo';
 import DotAdvice from '../dotAdvice';
+import { Container } from 'postcss';
+import { useRef } from 'react';
 export default function Game() {
 
   const decks = require("../../deck.json")
@@ -139,13 +141,13 @@ export default function Game() {
         else {
           setAdviceEtica(false)
         }
-        if (carta.indicatore.popolo.destra != 0 ) {
+        if (carta.indicatore.popolo.destra != 0) {
           setAdvicePopolo(true)
         }
         else {
           setAdvicePopolo(false)
         }
-        if (carta.indicatore.progresso.destra != 0 ) {
+        if (carta.indicatore.progresso.destra != 0) {
           setAdviceProgresso(true)
         }
         else {
@@ -153,20 +155,20 @@ export default function Game() {
         }
       }
       else {
-        if(info.offset.x < -100){
+        if (info.offset.x < -100) {
           if (carta.indicatore.etica.sinistra != 0) {
             setAdviceEtica(true)
           }
           else {
             setAdviceEtica(false)
           }
-          if (carta.indicatore.popolo.sinistra != 0 ) {
+          if (carta.indicatore.popolo.sinistra != 0) {
             setAdvicePopolo(true)
           }
           else {
             setAdvicePopolo(false)
           }
-          if (carta.indicatore.progresso.sinistra != 0 ) {
+          if (carta.indicatore.progresso.sinistra != 0) {
             setAdviceProgresso(true)
           }
           else {
@@ -175,7 +177,7 @@ export default function Game() {
         }
       }
     }
-    if(info.offset.x < 100 && info.offset.x > -100){
+    if (info.offset.x < 100 && info.offset.x > -100) {
       setAdviceEtica(false)
       setAdvicePopolo(false)
       setAdviceProgresso(false)
@@ -269,9 +271,35 @@ export default function Game() {
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
 
+  const containerRef = useRef(null);
+  const [titleHeight, setTitleHeight] = useState(0);
+  const [descriptionHeight, setDescriptionHeight] = useState(0);
+
+useEffect(()=>{
+  const handleResize = () => {
+    if (containerRef.current) { //se esiste l'elemento
+      const containerHeight = containerRef.current.clientHeight; //altezza del div contenitore
+      const cardHeight = containerRef.current.querySelector('.cardSpecial').clientHeight; //altezza della carta
+      const remainingHeight = containerHeight - cardHeight; //altezza rimanente nel container
+      const remainingHeightScale= ((100*remainingHeight)/containerHeight);
+      const titleHeight = remainingHeightScale * 0.30 // 25% for title
+      const descriptionHeight = remainingHeightScale * 0.60; // 15% for description
+
+      setTitleHeight(titleHeight);
+      setDescriptionHeight(descriptionHeight);
+    }
+  };
+
+  window.addEventListener('resize', handleResize);
+  handleResize();
+
+  return () => window.removeEventListener('resize', handleResize);
+})
+
+
   return (
     <main className="flex w-full h-full md:h-screen overflow-hidden flex-col items-center justify-center ">
-      <div className="sm:w-1/3 w-full h-full overflow-hidden relative flex flex-col justify-between bg-third ">  {/**column */}
+      <div className="sm:w-1/3 w-full h-full overflow-hidden relative flex flex-col  bg-third ">  {/**column */}
 
         {/**form end gamea*/}
         {statusGioco ? (
@@ -293,33 +321,35 @@ export default function Game() {
           </div>) : ""}
 
         {/**icons */}
-        <div className="w-full  bg-primary px-6 py-6 md:px-12 flex flex-row justify-evenly items-center">
-          <div className="w-10 items-center flex flex-col">
+        <div className="w-full h-min bg-primary px-6 py-3 md:py-6 md:px-12 flex flex-row justify-evenly items-center">
+          <div className="w-6 h-11 md:w-10 md:h-16 items-center justify-between flex flex-col">
             <IconEtica progress={indicatoreEtica}> </IconEtica>
             <DotAdvice state={adviceEtica} />
           </div>
-          <div className="w-10 items-center flex flex-col">
+          <div className="w-6 h-11 md:w-10 md:h-16 items-center justify-between flex flex-col">
             <IconProgress progress={indicatoreProgresso}></IconProgress>
             <DotAdvice state={adviceProgresso} />
           </div>
-          <div className="w-10 items-center flex flex-col">
+          <div className="w-6 h-11 md:w-10 md:h-16 items-center justify-between flex flex-col">
             <IconPopolo progress={indicatorePopolo}></IconPopolo>
             <DotAdvice state={advicePopolo} />
           </div>
         </div>
 
         {/**card */}
-        <div className='w-full h-full flex justify-center flex-col items-center'>
-          <div className="w-full flex flex-col text-center font-custom ">
-            <h1 className='text-secondary text-5xl md:px-12 px-6'>{carta.titolo}</h1>
+        <div ref={containerRef}  className='w-full h-full flex justify-between flex-col items-center py-3 px-12 md:px-16'>
+          {/** titolo carta */}
+          <div className="w-full flex flex-col justify-center items-center text-center font-custom" style={{ height: titleHeight+"%" }}>
+            <h1 className='font-custom text-secondary text-3xl '>{carta.titolo}</h1>
           </div>
+          
           {statusGioco ? (
             <div>
-              <div className="w-full aspect-square relative z-10 p-6">
+              <div className="w-full aspect-4/5 relative z-10 ">
                 <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
               </div>
             </div>) : (
-            <div className="w-full aspect-square relative bg-red-600 p-6 md:p-12" onClick={handleFlip}>
+            <div className="w-full cardSpecial aspect-4/5 relative bg-red-600 " onClick={handleFlip}>
               <div className={`relative w-full h-full duration-700 transform-style-preserve-3d ${flipped ? 'rotate-y-180' : ''}`}
               >
                 <div className="absolute backface-hidden w-full h-full bg-red-500 flex items-center justify-center rotate-y-180">
@@ -332,7 +362,7 @@ export default function Game() {
                     dragControls={controls}
                     onDragEnd={handleDragEnd}
                     onDrag={handleDrag}
-                    className="w-full aspect-square relative z-10"
+                    className="w-full aspect-4/5 relative z-10"
                     style={{
                       x,
                       scale,
@@ -344,7 +374,7 @@ export default function Game() {
                       {animationNewCard ? (
                         mazzo.carta.map((x, index) => { //matteo qui non va
                           return <motion.div
-                            className="w-full rounded-3xl aspect-square absolute bg-red-600"
+                            className="w-full rounded-3xl aspect-4/5 absolute bg-red-600"
                             key={index}
                             initial={{ opacity: 0, y: -100 }}
                             exit={{ opacity: 0, y: 100 }}
@@ -352,18 +382,18 @@ export default function Game() {
                             transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
                             onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
                           >
-                            <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
                           </motion.div>
                         })) : ("")}
 
                     </div>
-                    {/** carte */}
-                    <div className="w-full aspect-square relative  ">
+                    {/** carta che scorre */}
+                    <div className="w-full aspect-4/5 relative  ">
                       {!carta.testoDestra ? ("") :
-                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                        (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                       {!carta.testoSinistra ? ("") :
-                        (<motion.h1 className="text-xl font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
-                      <Image sizes="100vw, 100vw" alt="asd" src={carta.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
+                        (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                      <Image sizes="100vw, 100vw" alt="carta image swipe" src={carta.img} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill 	></Image>
                     </div>
                   </motion.div>
                 </div>
@@ -371,15 +401,18 @@ export default function Game() {
               </div>
 
               {/**carta fissa retro */}
-              <div className="w-full aspect-square absolute top-0 left-0 z-0 p-6 md:p-12">
-                <div className="w-full aspect-square relative ">
+              <div className="w-full aspect-4/5 absolute top-0 left-0 z-0">
+                <div className="w-full aspect-4/5 relative ">
                   <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
                 </div>
               </div>
             </div>)}
-          <div className="w-full flex flex-col text-center font-custom px-6 md:px-12 ">
-            <p className='text-secondary '> {carta.descrizione}</p>
+          
+          {/** descrizione carta */}
+          <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight+"%"  }}>
+            <p className='text-secondary text-lg !leading-5'> {carta.descrizione}</p>
           </div>
+
         </div>
 
         {/**progress bar */}
