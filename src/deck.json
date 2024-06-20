@@ -11,7 +11,7 @@
           "descrizione": "Ciao! Sono un fan dei libri, ne hai alcuni?",
           "testoSinistra": "Non lavoro con i satanisti",
           "testoDestra": "Tutto ciò che desideri ;)",
-          "img": "/eleonora.svg",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -35,7 +35,7 @@
           "descrizione": "Wow, grazie. Non e’ che hai il libro di hypne… hypne… tomachia ?",
           "testoSinistra": "Sei sicuro che la vuoi?",
           "testoDestra": "Certo Tieni",
-          "img": "/claudio.png",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -59,7 +59,7 @@
           "descrizione": " *Pronunciando male il nome del libro, appare Lucifero* Claudio: Aiutoooooo! * e scappa via*",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.png",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -83,7 +83,7 @@
           "descrizione": "Claudio si rigira e va via",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.png",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -105,7 +105,7 @@
           "descrizione": "OK torno a pregare satana da solo",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.png",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -129,7 +129,7 @@
           "testoDestra": "Metti da parte",
           "skipCarteDirection": 2,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -151,7 +151,7 @@
           "descrizione": "*Annuncio, Aldo Manuzio e Francesco Griffo cercano collaboratore per  diventare ricchi in 5 min, invia i tuoi soldi al numero +39 092…*",
           "testoSinistra": "Chiedi a Pino di non mandarti piu’ le pubblicita’",
           "testoDestra": "Invia i tuoi soldi ",
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -175,7 +175,7 @@
           "testoDestra": "Speciale in che senso? ",
           "skipCarteDirection": 1,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -197,7 +197,7 @@
           "descrizione": "“Diciamo solo rivolto a un pubblico di maschietti, ti pagherà bene”",
           "testoSinistra": "Ok, cosa non si fa per i soldi ",
           "testoDestra": "Cosa, oddio no? e se lo sapesse la chiesa",
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -311,7 +311,7 @@
           "testoDestra": "Si",
           "skipCarteDirection": 1,
           "numSkipCarte": 3,
-          "img": "/claudio.png",
+          "img": "/gianmarco.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -335,7 +335,7 @@
           "testoDestra": "Vai via da qui brutta cornacchia!",
           "skipCarteDirection": 2,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/gianmarco.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -357,7 +357,7 @@
           "descrizione": "Ti mostra il font di Caslon",
           "testoSinistra": "Beh non e’ mica un Baskerville",
           "testoDestra": "Lo prendo, faro ingelosire tutti i Bodoniani",
-          "img": "/claudio.png",
+          "img": "/gianmarco.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -449,7 +449,7 @@
           "descrizione": "“Egualitè, Fraternitè, Libertè",
           "testoSinistra": "Ehh, di cosa stai parlando?",
           "testoDestra": "Sono con te, Viva la Francia rivoluzionaria",
-          "img": "/claudio.png",
+          "img": "/eleonora.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -473,7 +473,7 @@
           "testoDestra": "Ho in mente una idea nuova, ti fidi di me?",
           "skipCarteDirection": 1,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/eleonora.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -495,7 +495,7 @@
           "descrizione": "Sono disperata, vai!",
           "testoSinistra": "Provo a cambiare formato e aggiungo i disegni?",
           "testoDestra": "Scrivo il motto “Se non hanno più pane, che mangino brioche”",
-          "img": "/claudio.png",
+          "img": "/eleonora.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -519,7 +519,7 @@
           "testoDestra": "Aprila",
           "skipCarteDirection": 1,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -541,7 +541,7 @@
           "descrizione": "*Ricercato Francesco Griffo per schema piramidale. Denunciato dal suo compagno d’affari: ” Non me l’aspettavo, dovevamo truffarli insieme!” ",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -635,7 +635,7 @@
           "descrizione": "Non è vero, aiutooooo!",
           "testoSinistra": "*pino corre via, inseguito dal soldato*",
           "testoDestra": "*pino corre via, inseguito dal soldato*",
-          "img": "/claudio.png",
+          "img": "/pino.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -657,7 +657,7 @@
           "descrizione": "Senti mi e’ venuta una idea pazzesca! Facciamo le copertine disegnate?!",
           "testoSinistra": "No vabbe’ e’ geniale! ",
           "testoDestra": "Sai dove portrava l’ombrello mio nonno?",
-          "img": "/claudio.png",
+          "img": "/claudio.svg",
           "indicatore": {
             "etica": {
               "destra": 0,

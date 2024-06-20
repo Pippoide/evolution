@@ -300,23 +300,7 @@ export default function Game() {
       <div className="sm:w-1/3 w-full h-full overflow-hidden relative flex flex-col  bg-third ">  {/**column */}
 
         {/**form end gamea*/}
-        {statusGioco ? (
-          <div className="bg-primary absolute w-min h-min z-50 flex  inset-0  flex-col mx-auto my-auto">
-            <form className="flex flex-col" onSubmit={async (event) => {
-              event.preventDefault();
-              try {
-                const response = await insertData();
-                console.log('before push:', response)
-                router.push('/')
-              } catch (err) {
-                console.error(err);
-              }
-            }}>
-              <h1>Assurdo eri cosi vicino</h1>
-              <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-              <button type="submit">Resta nella storia</button>
-            </form>
-          </div>) : ""}
+
 
         {/**icons */}
         <div className="w-full h-min bg-primary px-6 py-3 md:py-6 md:px-12 flex flex-row justify-evenly items-center">
@@ -341,21 +325,22 @@ export default function Game() {
             <h1 className='font-custom text-secondary text-3xl '>{carta.titolo}</h1>
           </div>
 
-          {statusGioco ? (
-            <div>
-              <div className="w-full aspect-4/5 relative z-10 ">
-                <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
-              </div>
-            </div>) : (
-            <div className="w-full cardSpecial relative aspect-4/5 " onClick={handleFlip}>
-              <div className="z-50 absolute w-full h-full transition-all ease-out duration-300"
-                style={{ 
-                  transform: flipped ? "rotateY(180deg)" : "",
-                  WebkitTransform: flipped ? "rotateY(180deg)" : "",
-                  transformStyle: 'preserve-3d',
-                  WebkitTransformStyle: 'preserve-3d'}}>
-                <div id='front' className=" absolute w-full h-full flex items-center justify-center" 
-                      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
+          {/** carta*/}
+          <div className="w-full cardSpecial relative aspect-4/5 " onClick={handleFlip}>
+            <div className="z-50 absolute w-full h-full transition-all ease-out duration-300"
+              style={{
+                transform: flipped ? "rotateY(180deg)" : "",
+                WebkitTransform: flipped ? "rotateY(180deg)" : "",
+                transformStyle: 'preserve-3d',
+                WebkitTransformStyle: 'preserve-3d'
+              }}>
+              <div id='front' className=" absolute w-full h-full flex items-center justify-center"
+                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
+                {statusGioco ? (//carta morte
+                  <div className="w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl " onClick={handleFlip}>
+                    <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
+                  </div>
+                ) : (
                   <motion.div
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
@@ -395,21 +380,37 @@ export default function Game() {
                         (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
                       <Image sizes="100vw, 100vw" alt="carta image swipe" src={carta.img} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill 	></Image>
                     </div>
-                  </motion.div>
-                </div>
-                <div id="back" className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180" 
-                      style={{backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
-                  CIAO
-                </div>
+                  </motion.div>)}
               </div>
+              <div id="back" className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
+                style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
+                {statusGioco ? (
+                  <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
+                    <form className="flex flex-col w-full p-16" onSubmit={async (event) => {
+                      event.preventDefault();
+                      try {
+                        const response = await insertData();
+                        console.log('before push:', response)
+                        router.push('/')
+                      } catch (err) {
+                        console.error(err);
+                      }
+                    }}>
+                      <h1>Assurdo eri cosi vicino</h1>
+                      <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
+                      <button type="submit">Resta nella storia</button>
+                    </form>
+                  </div>) : "back testo"}
+              </div>
+            </div>
 
-              {/**carta fissa retro */}
-              <div className="w-full aspect-4/5 absolute top-0 left-0 z-0">
-                <div className="w-full aspect-4/5 relative ">
-                  <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
-                </div>
+            {/**carta fissa retro */}
+            <div className="w-full aspect-4/5 absolute top-0 left-0 z-0">
+              <div className="w-full aspect-4/5 relative ">
+                <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
               </div>
-            </div>)}
+            </div>
+          </div>
 
           {/** descrizione carta */}
           <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
@@ -419,7 +420,7 @@ export default function Game() {
         </div>
 
         {/**progress bar */}
-        <div className="w-full flex h-auto bg-primary font-custom justify-center items-center px-6 py-6 md:px-12">
+        <div className="w-full flex h-auto bg-primary font-custom justify-center items-center px-12 py-6 md:px-16">
           <div className='relative w-[80%] flex justify-center items-center '>
             <span className='w-full h-[3px] bg-secondary'></span>
             <span id="swiper" className='absolute w-[3px] h-[30px] bg-primary-light z-100' style={{ left: `${positionSwiper}%` }}></span>
