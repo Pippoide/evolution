@@ -12,7 +12,6 @@ import IconProgress from "../iconProgress";
 import IconEtica from "../iconEtica";
 import IconPopolo from '../iconPopolo';
 import DotAdvice from '../dotAdvice';
-import { Container } from 'postcss';
 import { useRef } from 'react';
 export default function Game() {
 
@@ -37,7 +36,6 @@ export default function Game() {
   const [adviceEtica, setAdviceEtica] = useState(false);
   const [advicePopolo, setAdvicePopolo] = useState(false);
 
-
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
@@ -59,12 +57,9 @@ export default function Game() {
   //flip carta
   const [flipped, setFlipped] = useState(false);
   const handleFlip = () => {
-    setFlipped(!flipped);
+      setFlipped(!flipped);
   };
 
-
-
-  const opacity = useTransform(x, [-100, -50, 0, 50, 100], [0.8, 1, 1, 1, 0.8]);
   const scale = useTransform(x, [-200, 0, 200], [1, 1, 1]);
   const rotate = useTransform(x, [-200, 0, 200], [-5, 0, 5]);
   const textOpacityLeft = useTransform(x, [0, -50], [0, 1]);
@@ -269,6 +264,8 @@ export default function Game() {
     }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
 
+
+
   const containerRef = useRef(null);
   const [titleHeight, setTitleHeight] = useState(0);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
@@ -382,11 +379,11 @@ export default function Game() {
                     </div>
                   </motion.div>)}
               </div>
-              <div id="back" className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
+              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : ()=>{}}  className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
                   <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
-                    <form className="flex flex-col w-full p-16" onSubmit={async (event) => {
+                    <form className="flex flex-col w-full p-16" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
                       event.preventDefault();
                       try {
                         const response = await insertData();
@@ -416,14 +413,13 @@ export default function Game() {
           <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
             <p className='text-secondary text-lg !leading-5'> {carta.descrizione}</p>
           </div>
-
         </div>
 
         {/**progress bar */}
         <div className="w-full flex h-auto bg-primary font-custom justify-center items-center px-12 py-6 md:px-16">
           <div className='relative w-[80%] flex justify-center items-center '>
             <span className='w-full h-[3px] bg-secondary'></span>
-            <span id="swiper" className='absolute w-[3px] h-[30px] bg-primary-light z-100' style={{ left: `${positionSwiper}%` }}></span>
+            <span id="swiper" className='absolute w-[3px] h-[30px] bg-primary-light z-100 transition-all ease-out duration-300' style={{ left: `${positionSwiper}%` }}></span>
             <span className='absolute w-[3px] h-[30px] bg-secondary left-0'></span>
             <span className='absolute w-[3px] h-[30px] bg-secondary right-0'></span>
           </div>
