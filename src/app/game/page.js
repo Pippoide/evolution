@@ -13,11 +13,14 @@ import IconEtica from "../iconEtica";
 import IconPopolo from '../iconPopolo';
 import DotAdvice from '../dotAdvice';
 import { useRef } from 'react';
+import { FLIGHT_PARAMETERS } from 'next/dist/client/components/app-router-headers';
 export default function Game() {
 
   const decks = require("../../deck.json")
   const deckDeath = require("../../deathDeck.json")
   const router = useRouter()
+
+  const containerRef = useRef(null);
 
   //IndicatoriGioco
   const [indicatoreProgresso, setIndicatoreProgresso] = useState(50);
@@ -36,6 +39,22 @@ export default function Game() {
   const [adviceEtica, setAdviceEtica] = useState(false);
   const [advicePopolo, setAdvicePopolo] = useState(false);
 
+  const [infoOffsetX, SetInfoOffsetX] = useState(0);
+  const [flipped, setFlipped] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const dragStartTimeout = useRef(null);
+  const fakeOneClick = useRef(null)
+
+  useEffect(() => {
+    console.log("Posizione di SpecialCard: ", infoOffsetX)
+  }, [infoOffsetX])
+
+  useEffect(() => {
+    console.log(flipped)
+  }, [flipped])
+
+
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
@@ -47,6 +66,9 @@ export default function Game() {
     cartaLength += decks.deck[i].carta.length
   }
 
+  /**controllo del flip back sbagliato */
+
+
   /** variabili Morte*/
   const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
   const [cartaMorte, setCartaMorte] = useState(mazzoMorte.indicatore);
@@ -55,10 +77,17 @@ export default function Game() {
   const x = useMotionValue(0);
 
   //flip carta
-  const [flipped, setFlipped] = useState(false);
   const handleFlip = () => {
-      setFlipped(!flipped);
+    console.log("OneClick partito")
+    if (infoOffsetX == 0) {
+      if (!isDragging) {
+        setFlipped(!flipped)
+      }
+    }
   };
+
+
+
 
   const scale = useTransform(x, [-200, 0, 200], [1, 1, 1]);
   const rotate = useTransform(x, [-200, 0, 200], [-5, 0, 5]);
@@ -125,8 +154,18 @@ export default function Game() {
     }
   }
 
+
+  const handleDragStart = () => {
+    // Imposta il timeout per considerare l'inizio del drag dopo un breve ritardo
+    dragStartTimeout.current = setTimeout(() => {
+      setIsDragging(true);
+    }, 100); // 100ms, modifica secondo necessità
+  };
+
   //handledrag durante la carta è trascinata
   const handleDrag = (event, info) => {
+    clearTimeout(dragStartTimeout.current);
+    setIsDragging(false);
     if (!carta?.evento) { //controllo non è evento, se è evento non ha cambi d'indicatore
       if (info.offset.x > 100) { //carta a destra
         if (carta.indicatore.etica.destra != 0) {
@@ -176,10 +215,17 @@ export default function Game() {
       setAdvicePopolo(false)
       setAdviceProgresso(false)
     }
-  };
+    SetInfoOffsetX(info.offset.x)
+    setFlipped(false)
+  }
+
 
   const handleDragEnd = (event, info) => {
-    console.log(info.offset.x)
+    //pulizia se gia in corso un fakeOneClick
+    if (fakeOneClick.current) {
+      clearTimeout(fakeOneClick.current);
+    }
+
     if (!carta?.evento) {
       if (info.offset.x > 100) { //carta trascinata a destra
         changeIndicatore(true)
@@ -227,9 +273,24 @@ export default function Game() {
     setAdvicePopolo(false)
     setAdviceProgresso(false)
 
+
+    fakeOneClick.current = setTimeout(() => {
+      SetInfoOffsetX(0);
+    }, 400)
+    setFlipped(false)
   };
 
+  useEffect(() => {
+    // Cleanup function per cancellare il timeout se il componente viene smontato
+    return () => {
+      if (fakeOneClick.current) {
+        clearTimeout(fakeOneClick.current);
+      }
+    };
+  }, []);
+  
   const checkNextCarta = () => {
+
     if (contatoreCarta >= mazzoLength - 1) {
       setContatoreCarta(0) //resetta la carta
       if (contatoreMazzo < deckLength - 1) {
@@ -240,7 +301,6 @@ export default function Game() {
       }
     }
   }
-  //console.log("sadad:",process.env.NEXT_PUBLIC_BACKEND_URL)
 
   async function insertData() {
     try {
@@ -266,7 +326,6 @@ export default function Game() {
 
 
 
-  const containerRef = useRef(null);
   const [titleHeight, setTitleHeight] = useState(0);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
 
@@ -323,7 +382,7 @@ export default function Game() {
           </div>
 
           {/** carta*/}
-          <div className="w-full cardSpecial relative aspect-4/5 " onClick={handleFlip}>
+          <div className="w-full cardSpecial relative aspect-4/5" onClick={handleFlip}>
             <div className="z-50 absolute w-full h-full transition-all ease-out duration-300"
               style={{
                 transform: flipped ? "rotateY(180deg)" : "",
@@ -342,6 +401,7 @@ export default function Game() {
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragControls={controls}
+                    onDragStart={handleDragStart}
                     onDragEnd={handleDragEnd}
                     onDrag={handleDrag}
                     className="w-full aspect-4/5 relative z-10"
@@ -379,7 +439,7 @@ export default function Game() {
                     </div>
                   </motion.div>)}
               </div>
-              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : ()=>{}}  className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
+              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
                   <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
