@@ -50,3 +50,114 @@ body {
   }
 }
 
+.cls-1 {
+  fill: none;
+  stroke: #a11e21;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  }
+
+  .cls-2 {
+  fill: #f8c1b0;
+  }
+
+  .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .cls-10, .cls-11, .cls-12,
+  .cls-13, .cls-14, .cls-15, .cls-16, .cls-17, .cls-18, .cls-19, .cls-20, .cls-21, .cls-22 {
+  stroke-width: 0px;
+  }
+
+  .cls-3 {
+  fill: #f58925;
+  }
+
+  .cls-4 {
+  fill: #4b366a;
+  }
+
+  .cls-5 {
+  fill: #382b6a;
+  }
+
+  .cls-6 {
+  fill: #272623;
+  }
+
+  .cls-7 {
+  fill: #412d75;
+  }
+
+  .cls-8 {
+  fill: #04c0b1;
+  }
+
+  .cls-9 {
+  fill: #1a6789;
+  }
+
+  .cls-10 {
+  fill: #252523;
+  }
+
+  .cls-11 {
+  fill: #c77123;
+  }
+
+  .cls-12 {
+  fill: #deaea3;
+  }
+
+  .cls-13 {
+  fill: #c87223;
+  }
+
+  .cls-14 {
+  fill: #e0a79f;
+  }
+
+  .cls-15 {
+  fill: #dfafa4;
+  }
+
+  .cls-16 {
+  fill: #dbcee7;
+  }
+
+  .cls-17 {
+  fill: #654092;
+  }
+
+  .cls-18 {
+  fill: #fbfbfb;
+  }
+
+  .cls-19 {
+  fill: #ef9d94;
+  }
+
+  .cls-20 {
+  fill: #03a193;
+  }
+
+  .cls-21 {
+  fill: #03a295;
+  }
+
+  .cls-22 {
+  fill: #00927a;
+  }
+
+
+
+  .arrabbiato{
+    animation: arrabbiatoAnimation 1.5s ease-in-out 0.5s 1 forwards;
+ 
+  }
+  @keyframes arrabbiatoAnimation {
+
+    from{
+      transform: scale(1) scale(1); 
+    }
+    to{
+      transform: translateX(-10%) scale(1.2);
+    }
+  }
