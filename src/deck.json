@@ -35,7 +35,7 @@
           "descrizione": "Wow, grazie. Non e’ che hai il libro di hypne… hypne… tomachia ?",
           "testoSinistra": "Sei sicuro che la vuoi?",
           "testoDestra": "Certo Tieni",
-          "img": "/claudio.svg",
+          "img": "/claudioArrabbiato.svg",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -59,7 +59,7 @@
           "descrizione": " *Pronunciando male il nome del libro, appare Lucifero* Claudio: Aiutoooooo! * e scappa via*",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.svg",
+          "img": "/claudioImbarazzato.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -83,7 +83,7 @@
           "descrizione": "Claudio si rigira e va via",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.svg",
+          "img": "/claudioContento.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
