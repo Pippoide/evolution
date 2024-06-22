@@ -463,9 +463,9 @@ export default function Game() {
                     {/** carta che scorre */}
                     <div className="w-full aspect-4/5 relative  ">
                       {!carta.testoDestra ? ("") :
-                        (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                        (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                       {!carta.testoSinistra ? ("") :
-                        (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                        (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
                                 <img sizes="100vw, 100vw" alt="carta image swipe" src={carta.img} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill></img>
 
                     </div>
