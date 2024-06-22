@@ -4,6 +4,74 @@
       "nomeMazzo": "industria",
       "carta": [
         {
+          "id": -1,
+          "numSkipCarte": 3,
+          "skipCarteDirection": 1,
+          "titolo": "Tutorial",
+          "descrizione": "Benvenuto nella tua tipografia",
+          "testoSinistra": "salta tutorial",
+          "testoDestra": "scorri",
+          "img": "/tutorial1.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra":0,
+              "sinistra": 0
+            }
+          }
+        },   {
+          "id": -1,
+          "titolo": "Tutorial",
+          "descrizione": "Come giocare",
+          "numSkipCarte": 2,
+          "skipCarteDirection": 1,
+          "testoSinistra": "salta tutorial",
+          "testoDestra": "scorri",
+          "img": "/tutorial2.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },   {
+          "id": 0,
+          "titolo": "Tutorial",
+          "descrizione": "Come funzionano gli indicatori",
+          "testoSinistra": "Inizia la partita",
+          "testoDestra": "Inizia la partita",
+          "img": "/tutorial3.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
           "id": 0,
           "numSkipCarte": 4,
           "skipCarteDirection": 1,
@@ -22,7 +90,7 @@
               "sinistra": 0
             },
             "progresso": {
-              "destra": 0,
+              "destra": 10,
               "sinistra": -10
             }
           }
@@ -38,7 +106,7 @@
           "img": "/claudioArrabbiato.svg",
           "indicatore": {
             "etica": {
-              "destra": 10,
+              "destra": 0,
               "sinistra": 0
             },
             "popolo": {
@@ -59,7 +127,7 @@
           "descrizione": " *Pronunciando male il nome del libro, appare Lucifero* Claudio: Aiutoooooo! * e scappa via*",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudioImbarazzato.svg",
+          "img": "/claudioArrabbiato.svg",
           "indicatore": {
             "etica": {
               "destra": 0,

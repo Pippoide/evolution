@@ -4,6 +4,7 @@
 
 
 module.exports = {
+
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,9 +21,7 @@ module.exports = {
     },
     extend: {
       aspectRatio: {
-
         '4/5': '4 / 5'
-
       },
       fontFamily: {
         alfa: ['var(--font-alfa)', 'sans-serif'],

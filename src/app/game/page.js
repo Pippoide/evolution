@@ -13,7 +13,7 @@ import IconEtica from "../iconEtica";
 import IconPopolo from '../iconPopolo';
 import DotAdvice from '../dotAdvice';
 import { useRef } from 'react';
-import { FLIGHT_PARAMETERS } from 'next/dist/client/components/app-router-headers';
+import Card from '../card';
 export default function Game() {
 
   const decks = require("../../deck.json")
@@ -105,7 +105,12 @@ export default function Game() {
   const incrementoSwiper = 100 / cartaLength;
   const [positionSwiper, setPositionSwiper] = useState(0)
   useEffect(() => {
-    setPositionSwiper((carta.id) * incrementoSwiper);
+    if(carta.id<0){
+      setPositionSwiper((0) * incrementoSwiper);
+    }
+    else{
+      setPositionSwiper((carta.id) * incrementoSwiper);
+    }
   }, [score])
 
 
@@ -124,6 +129,14 @@ export default function Game() {
       if (indicatoreEtica >= 100 || indicatoreEtica <= 0) {
         setStatusGioco(true);
         setCartaMorte(prev => prev.etica)
+      }
+      if (indicatorePopolo >= 100 || indicatorePopolo <= 0) {
+        setStatusGioco(true);
+        setCartaMorte(prev => prev.popolo)
+      }
+      if (indicatoreProgresso >= 100 || indicatoreProgresso <= 0) {
+        setStatusGioco(true);
+        setCartaMorte(prev => prev.progresso)
       }
     }
     else {
@@ -219,6 +232,13 @@ export default function Game() {
     setFlipped(false)
   }
 
+  const handleSetScore = () =>{
+    if(carta.id >=0){
+      setScore(prev => prev +1)
+    }
+    
+  }
+
 
   const handleDragEnd = (event, info) => {
     //pulizia se gia in corso un fakeOneClick
@@ -229,6 +249,7 @@ export default function Game() {
     if (!carta?.evento) {
       if (info.offset.x > 100) { //carta trascinata a destra
         changeIndicatore(true)
+        handleSetScore();
         // Esegui azione di swipe a destra
         if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 2) //swipe a destra 0(entrambi i lati) 2(se scegli di andare a destra salti delle carte)
         {
@@ -239,10 +260,11 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
         }
         checkNextCarta()
-        setScore(prev => prev + 1)
+        
         console.log("Swipe a destra!");
       } else if (info.offset.x < -100) {
         changeIndicatore(false)
+        handleSetScore();
         //
         if (carta?.skipCarteDirection == 0 || carta?.skipCarteDirection == 1) { //swipe a sinistra 0(entrambi i lati) 1 (se scegli di andare a sinistra salti delle carte)
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
@@ -250,7 +272,7 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
         }
         checkNextCarta()
-        setScore(prev => prev + 1)
+       
         //nuova carta
         // Esegui azione di swipe a sinistra
         console.log("Swipe a sinistra!");
@@ -258,7 +280,8 @@ export default function Game() {
       // Resetta la posizione del div
       x.set(0);
     } else {
-      console.log("carta evneto")
+      handleSetScore();
+      console.log("carta evneto") //controllare se si riporta la carta evento al centro se conta lo score
       if (carta?.skipCarteDirection == true) {
         setContatoreCarta(prevContatoreCarta => prevContatoreCarta + carta.numSkipCarte) //nuova carta skippata
       }
@@ -266,7 +289,7 @@ export default function Game() {
         setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
       }
       checkNextCarta()
-      setScore(prev => prev + 1) //controllare se si riporta la carta evento al centro se conta lo score
+     
     }
 
     setAdviceEtica(false)
@@ -325,6 +348,9 @@ export default function Game() {
   }
 
 
+  useEffect(()=>{
+    console.log("cambiato path")
+  },[carta.img])
 
   const [titleHeight, setTitleHeight] = useState(0);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
@@ -350,6 +376,11 @@ export default function Game() {
     return () => window.removeEventListener('resize', handleResize);
   })
 
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    setKey(new Date().getTime());
+  }, [score]);
 
   return (
     <main className="flex w-full h-full md:h-screen overflow-hidden flex-col items-center justify-center ">
@@ -378,7 +409,7 @@ export default function Game() {
         <div ref={containerRef} className='w-full h-full flex justify-between flex-col items-center py-3 px-12 md:px-16'>
           {/** titolo carta */}
           <div className="w-full flex flex-col justify-center items-center text-center font-custom" style={{ height: titleHeight + "%" }}>
-            <h1 className='font-custom text-secondary text-3xl '>{carta.titolo}</h1>
+            <h1 className='font-custom text-secondary text-3xl '>{statusGioco? cartaMorte.titolo: carta.titolo}</h1>
           </div>
 
           {/** carta*/}
@@ -394,7 +425,7 @@ export default function Game() {
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                 {statusGioco ? (//carta morte
                   <div className="w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl " onClick={handleFlip}>
-                    <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill 	></Image>
+                    <Image key={key} sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill="true" 	></Image>
                   </div>
                 ) : (
                   <motion.div
@@ -435,7 +466,8 @@ export default function Game() {
                         (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                       {!carta.testoSinistra ? ("") :
                         (<motion.h1 className="text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
-                      <Image sizes="100vw, 100vw" alt="carta image swipe" src={carta.img} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill 	></Image>
+                                <img sizes="100vw, 100vw" alt="carta image swipe" src={carta.img} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill></img>
+
                     </div>
                   </motion.div>)}
               </div>
@@ -471,7 +503,7 @@ export default function Game() {
 
           {/** descrizione carta */}
           <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
-            <p className='text-secondary text-lg !leading-5'> {carta.descrizione}</p>
+            <p className='text-secondary text-lg !leading-5'> {statusGioco? cartaMorte.descrizione : carta.descrizione}</p>
           </div>
         </div>
 
