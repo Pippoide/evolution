@@ -21,9 +21,6 @@ const rubik = Rubik({
 export const metadata = {
   title: "Design Epoque",
   description: " Vai al tuo lavoro di commesso tipografo e fai scorrere le tue dita a sinistra o a destra, rispondendo ai clienti. Modifica l’andamento della storia della grafica e cerca di scoprire la sua fine…",
-  openGraph: {
-    images: '/favicon.ico',
-  }
 };
 
 export default function RootLayout({ children }) {

@@ -14,7 +14,7 @@
           "img": "/tutorial1.svg",
           "indicatore": {
             "etica": {
-              "destra": 0,
+              "destra": 100,
               "sinistra": 0
             },
             "popolo": {
