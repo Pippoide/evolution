@@ -455,7 +455,7 @@ export default function Game() {
                             transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
                             onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
                           >
-                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill="true"	></Image>
                           </motion.div>
                         })) : ("")}
 
@@ -496,7 +496,7 @@ export default function Game() {
             {/**carta fissa retro */}
             <div className="w-full aspect-4/5 absolute top-0 left-0 z-0">
               <div className="w-full aspect-4/5 relative ">
-                <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill	></Image>
+                <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill="true" ></Image>
               </div>
             </div>
           </div>
