@@ -24,8 +24,6 @@ module.exports = {
         '4/5': '4 / 5'
       },
       fontFamily: {
-        alfa: ['var(--font-alfa)', 'sans-serif'],
-        rubik: ['var(--font-rubik)', 'sans-serif'],
         custom: ['typewriter', 'sans-serif']
       },
       backgroundImage: {

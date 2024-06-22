@@ -1,32 +1,42 @@
-async function getData() {
-    try {
-        const res = await fetch(`${process.env.BACKEND_URL}/leadboard?${Date.now()}`, {
-            method: "GET",
-            cache: 'default',
-            next: { tags: ['leadboard'] }
-        });
-        return await res.json();
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return { error };
+'use client'
+
+import { useEffect, useState } from "react";
+
+
+
+export default function Leadboard() {
+    const [rows,setRows] = useState([])
+    async function getData() {
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leadboard`, {
+                method: "GET",
+                cache: 'default',
+                next: { tags: ['leadboard'] }
+            });
+            setRows(await res.json());
+        } catch (error) {
+            console.error('Error fetching data:', error);
+            return { error };
+        }
     }
-}
 
-export default async function Leadboard() {
-    const rows = await getData();
-
+  
+    useEffect(()=>{
+        getData();
+    },[])
+    
     return (
         <div className="w-full h-screen bg-third flex justify-center p-12 md:px-0">
             <div className="w-full md:w-2/5 ">
                 <div className="mb-6 md:mb-12 text-secondary ">
-                    <h1 className="font-alfa text-secondary md:text-6xl ">Classifica</h1>
+                    <h1 className=" text-secondary md:text-6xl ">Classifica</h1>
                     <p className="text-secondary text-xs md:text-lg">
                         Qui sono presenti le geste eroiche ti tutti i giocatori che sono riusciti a lasciare un segno nella storia della grafica
                     </p>
                 </div>
 
                 <div className=" bg-secondary text-third">
-                    <div className="grid grid-cols-9 text-secondary font-alfa bg-red-500 bg-primary p-2 md:py-4 text-xs md:text-xl">
+                    <div className="grid grid-cols-9 text-secondary  bg-red-500 bg-primary p-2 md:py-4 text-xs md:text-xl">
                         <div className="col-span-2">Rank</div>
                         <div className="col-span-5 text-center">Nickname</div>
                         <div className="col-span-2 text-right">Score</div>
