@@ -38,6 +38,7 @@
           "testoSinistra": "salta tutorial",
           "testoDestra": "scorri",
           "img": "/tutorial2.svg",
+          "anno": "0",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -311,7 +312,7 @@
           "descrizione": "Come va il negozio senza di me?",
           "testoSinistra": "Male",
           "testoDestra": "Bene",
-          "img": "/claudio.png",
+          "img": "/proprietario.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -335,7 +336,7 @@
           "testoDestra": "Apri il pacco a destra",
           "skipCarteDirection": 2,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/proprietario.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -357,7 +358,7 @@
           "descrizione": "Il pacco esplode e il negozio va a fuoco. Sei licenziato",
           "testoSinistra": " ",
           "testoDestra": " ",
-          "img": "/claudio.png",
+          "img": "/proprietario.svg",
           "indicatore": {
             "etica": {
               "destra": 10,
@@ -379,7 +380,7 @@
           "descrizione": "Uffa, hai indovinato. Tieniti quel coso, me l’ha regalato il mio amico Gutenberg",
           "testoSinistra": "hai acquisito la stampante a caratteri mobili",
           "testoDestra": "hai acquisito la stampante a caratteri mobili",
-          "img": "/claudio.png",
+          "img": "/proprietario.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -473,7 +474,7 @@
           "testoDestra": "Utilizza l’Egiziano e fagli pagare il doppio",
           "skipCarteDirection": 2,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/gastoro.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -497,7 +498,7 @@
           "testoDestra": "grazie credo…",
           "skipCarteDirection": 0,
           "numSkipCarte": 2,
-          "img": "/claudio.png",
+          "img": "/gastoro.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
@@ -519,7 +520,7 @@
           "descrizione": "Pensi che sono stupido e non so che mi vuoi fregare?!",
           "testoSinistra": "Ma che dice, io davvero…",
           "testoDestra": "Ha ragione, mi scusi non accadrà più",
-          "img": "/claudio.png",
+          "img": "/gastoro.svg",
           "indicatore": {
             "etica": {
               "destra": 0,
