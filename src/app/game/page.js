@@ -69,6 +69,7 @@ export default function Game() {
 
   const [pathCarta, setPathCarta] = useState(carta.img)
   /**controllo del flip back sbagliato */
+  console.log(carta)
 
   useEffect(() => {
     console.log("contatoreCarta : " + contatoreCarta)
@@ -467,7 +468,7 @@ export default function Game() {
                     </div>
                   </motion.div>)}
               </div>
-              <div id="back" onClick={statusGioco ?  (e) => e.stopPropagation() : () => { }} className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
+              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className={`${carta.flip? "rounded-3xl p-6":""} z-50 absolute w-full h-full bg-secondary flex items-center justify-center rotate-y-180 transition-all ease-out duration-300`}
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
                   <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
@@ -485,7 +486,18 @@ export default function Game() {
                       <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
                       <button type="submit">Resta nella storia</button>
                     </form>
-                  </div>) : "back testo"}
+                  </div>) : (
+                  !carta.flip ?
+                    (<div className="w-full aspect-4/5 relative ">
+                      <Image sizes="100vw, 100vw" alt="asd" src="/copertina.svg" className="point-event-none rounded-3xl bg-cover" draggable="false" fill="true" ></Image>
+                    </div>)
+                    : (
+                      <div className='w-full h-full overflow-auto flex-col  bg-secondary '>
+                        <img className='point-event-none bg-cover' sizes='100vw, 30vw' src={carta.flipImg}></img>
+                        <p className='w-full h-full py-6 font-custom '>
+                          {carta.flipDescrizione}
+                        </p>
+                      </div>))}
               </div>
             </div>
 
@@ -499,7 +511,7 @@ export default function Game() {
 
           {/** descrizione carta */}
           <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
-            <p className='text-secondary text-lg !leading-5' dangerouslySetInnerHTML={{__html :statusGioco ? cartaMorte.descrizione : carta.descrizione}}></p>
+            <p className='text-secondary text-lg !leading-5' dangerouslySetInnerHTML={{ __html: statusGioco ? cartaMorte.descrizione : carta.descrizione }}></p>
           </div>
         </div>
 
@@ -512,7 +524,7 @@ export default function Game() {
             <span className='absolute w-[3px] h-[30px] bg-secondary right-0'></span>
           </div>
           <div className='w-[20%] flex justify-end text-xl font-custom text-secondary'>
-            <span>1922</span>
+            <span>{carta.anno}</span>
           </div>
         </div>
       </div>

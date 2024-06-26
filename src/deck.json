@@ -7,14 +7,12 @@
           "id": -1,
           "numSkipCarte": 3,
           "skipCarteDirection": 1,
-          "titolo": "<i>Tutorial</i>",
-          "descrizione": "Benvenuto nella tua <i>tipografia</i>",
+          "titolo": "Tutorial",
+          "descrizione": "Benvenuto nella tua tipografia",
           "testoSinistra": "salta tutorial",
           "testoDestra": "scorri",
-          "anno":"0",
-          "flip": "true",
-          "flip-img":"",
-          "flip-descrizione":"",
+          "anno": "0",
+          "flip": false,
           "img": "/tutorial1.svg",
           "indicatore": {
             "etica": {
@@ -26,11 +24,12 @@
               "sinistra": 0
             },
             "progresso": {
-              "destra":0,
+              "destra": 0,
               "sinistra": 0
             }
           }
-        },   {
+        },
+        {
           "id": -1,
           "titolo": "Tutorial",
           "descrizione": "Come giocare",
@@ -53,12 +52,15 @@
               "sinistra": 0
             }
           }
-        },   {
-          "id": 0,
+        },
+        {
+          "id": -1,
           "titolo": "Tutorial",
           "descrizione": "Come funzionano gli indicatori",
           "testoSinistra": "Inizia la partita",
           "testoDestra": "Inizia la partita",
+          "anno": 0,
+          "flip": false,
           "img": "/tutorial3.svg",
           "indicatore": {
             "etica": {
@@ -83,9 +85,8 @@
           "descrizione": "Ciao! Sono un fan dei libri, ne hai alcuni?",
           "testoSinistra": "Non lavoro con i satanisti",
           "testoDestra": "Tutto ciò che desideri ;)",
-          "flip": "true",
-          "flip-img":"https://www.ciamanimali.com/stupload/stblog/1/42/59/4259large.jpg",
-          "flip-descrizione":"sadjkasndksadksadasdb <i>italic</i> ",
+          "flip": false,
+          "anno": "1499",
           "img": "/claudio.svg",
           "indicatore": {
             "etica": {
@@ -110,6 +111,10 @@
           "descrizione": "Wow, grazie. Non e’ che hai il libro di hypne… hypne… tomachia ?",
           "testoSinistra": "Sei sicuro che la vuoi?",
           "testoDestra": "Certo Tieni",
+          "flip": true,
+          "anno": "1499",
+          "flipImg": "https://www.anca-aste.it/photos/auctions/orig/1029/8_3.jpg",
+          "flipDescrizione": "L'Hypnerotomachia Poliphili (letteralmente Combattimento amoroso di Polifilo in sogno) è un romanzo allegorico, stampato a Venezia da Aldo Manuzio il Vecchio nel dicembre 1499, con 169 illustrazioni xilografiche. Il racconto descrive un sogno erotico del suo protagonista, Polifilo. Si tratta di un viaggio iniziatico che ha per tema centrale la ricerca della donna amata, metafora di una trasformazione interiore alla ricerca dell'amore platonico.",
           "img": "/claudioArrabbiato.svg",
           "indicatore": {
             "etica": {
@@ -134,6 +139,8 @@
           "descrizione": " *Pronunciando male il nome del libro, appare Lucifero* Claudio: Aiutoooooo! * e scappa via*",
           "testoSinistra": " ",
           "testoDestra": " ",
+          "flip": false,
+          "anno": "1499",
           "img": "/claudioArrabbiato.svg",
           "indicatore": {
             "etica": {
@@ -158,6 +165,8 @@
           "descrizione": "Claudio si rigira e va via",
           "testoSinistra": " ",
           "testoDestra": " ",
+          "flip": false,
+          "anno": "1499",
           "img": "/claudioImbarazzato.svg",
           "indicatore": {
             "etica": {
@@ -180,6 +189,8 @@
           "descrizione": "OK torno a pregare satana da solo",
           "testoSinistra": " ",
           "testoDestra": " ",
+          "flip": false,
+          "anno": "1499",
           "img": "/claudio.svg",
           "indicatore": {
             "etica": {
@@ -202,6 +213,8 @@
           "descrizione": "ecco la tua rivista",
           "testoSinistra": "Aprila",
           "testoDestra": "Metti da parte",
+          "flip": false,
+          "anno": "1501",
           "skipCarteDirection": 2,
           "numSkipCarte": 2,
           "img": "/pino.svg",
@@ -223,9 +236,13 @@
         {
           "id": 6,
           "titolo": "Pino",
-          "descrizione": "*Annuncio, Aldo Manuzio e Francesco Griffo cercano collaboratore per  diventare ricchi in 5 min, invia i tuoi soldi al numero +39 092…*",
+          "descrizione": "*Annuncio, Aldo Manuzio e Francesco Griffo cercano collaboratore per diventare ricchi in 5 min, invia i tuoi soldi al numero +39 092…*",
           "testoSinistra": "Chiedi a Pino di non mandarti piu’ le pubblicita’",
           "testoDestra": "Invia i tuoi soldi ",
+          "flip": true,
+          "anno": "1501",
+          "flipImg": "https://www.giornaledelgarda.info/wp-content/uploads/2016/06/Manuzio-4.jpg",
+          "flipDescrizione": "Aldo Manuzio (Bassiano, 1450 circa – Venezia, 6 febbraio 1515) era un editore umanista la cui missione era quella di preservare e diffondere la letteratura greca e latina attraverso edizioni stampate. Francesco Griffo (Bologna 1450 circa – Bologna 1518 circa) era un tipografo e disegnatore di caratteri. Francesco Griffo (Bologna 1450 circa – Bologna 1518 circa) era un tipografo e disegnatore di caratteri. Francesco Griffo (Bologna 1450 circa – Bologna 1518 circa) era un tipografo e disegnatore di caratteri. A partire dal 1494 si mette al servizio di Aldo Manuzio, per il quale disegnerà e inciderà numerosi caratteri tipografici. ",
           "img": "/pino.svg",
           "indicatore": {
             "etica": {
@@ -686,8 +703,8 @@
           "descrizione": "Stia zitto, l’arresto immediatamente",
           "testoSinistra": "Morto: Sei stato arrestato",
           "testoDestra": "Morto: Sei stato arrestato",
-          "skipCarteDirection":0,
-          "numSkipCarte":2,
+          "skipCarteDirection": 0,
+          "numSkipCarte": 2,
           "img": "/claudio.png",
           "indicatore": {
             "etica": {
@@ -791,7 +808,608 @@
               "sinistra": 0
             }
           }
+        },
+        {
+          "id": 31,
+          "titolo": "Matilde",
+          "descrizione": "Non perdete ultime notizie! Non ve lo aspetterete",
+          "testoSinistra": "Comprare il giornale",
+          "testoDestra": "Cacciala via",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "img": "/matilde.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        }, {
+          "id": 32,
+          "titolo": "Matilde",
+          "descrizione": "“Come la superstar Elizabeth Siddal diventa una tossica dipendente.”",
+          "testoSinistra": "Uff, noioso. Cosa c’è di altro?",
+          "testoDestra": "Poverina, che storia drammatica",
+          "img": "/matilde.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 33,
+          "titolo": "Proprietario",
+          "descrizione": "Hai sentito ultimi notizie? Abbiamo dei nuovi concorrenti! (1890)",
+          "testoSinistra": "Si",
+          "testoDestra": "No",
+          "img": "/proprietario.svg",
+          "skipCarteDirection": 1,
+          "numSkipCarte": 2,
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 34,
+          "titolo": "Proprietario",
+          "descrizione": "Come non sei aggiornato, che ti pago a fare?! (A)",
+          "testoSinistra": "William Morris ha fondato la Kelmscott Press ",
+          "testoDestra": "William Morris ha fondato la Kelmscott Press ",
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 35,
+          "titolo": "Proprietario",
+          "descrizione": "Guarda cosa ha stampato la tipografia di Morris!!!",
+          "testoSinistra": "Guarda  <i>il libro buttato davanti a te</i>",
+          "testoDestra": "nascondi il The Cantebury che stavi leggendo",
+          "img": "/proprietario.svg",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 36,
+          "titolo": "Proprietario",
+          "descrizione": "è il “ The Canterbury Tales” di Geoffrey Chaucer”, ma non ti preoccupare sto già pensando a come batterli",
+          "testoSinistra": "Sembra il libro di mia Nonna",
+          "testoDestra": "Sembra un libro del medioevo",
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 37,
+          "titolo": "Matilde",
+          "descrizione": "Stavo per dimenticarmi, ti è arrivato un pacco dal Giappone.(1858)",
+          "testoSinistra": "Oh, ok grazie",
+          "testoDestra": "Io non ho ordinato nulla",
+          "img": "/matilde.svg",
+          "skipCarteDirection": 2,
+          "numSkipCarte": 2,
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 38,
+          "titolo": "Eleonora",
+          "descrizione": "Fai un pack Opening leggendario? oh ma quelli sono pubblicità giapponesi",
+          "testoSinistra": "Hai ragione, sono super differenti",
+          "testoDestra": "c’è scritto 移动的人是同性恋",
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 38,
+          "titolo": "Eleonora",
+          "descrizione": "Fai un pack Opening leggendario? oh ma quelli sono pubblicità giapponesi",
+          "testoSinistra": "Hai ragione, sono super differenti",
+          "testoDestra": "c’è scritto 移动的人是同性恋",
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 39,
+          "titolo": "Pino",
+          "descrizione": "ecco la tua rivista settimanale, spero che ti strozzi!",
+          "testoSinistra": "Vedo che sei in buon umore!",
+          "testoDestra": "Tutto apposto?",
+          "skipCarteDirection":1,
+          "numSkipCarte":2,
+          "img": "/pino.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 40,
+          "titolo": "Pino",
+          "descrizione": "Mi domandi pure?! Dopo quello che mi hai fatto?!",
+          "testoSinistra": "Ti do il 10% del guadagno",
+          "testoDestra": "Mica sei stato imprigionato",
+          "skipCarteDirection":1,
+          "numSkipCarte":2,
+          "img": "/pino.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 41,
+          "titolo": "Pino",
+          "descrizione": "quindi ti prendi la rivista? (1894)",
+          "testoSinistra": "Prossima volta",
+          "testoDestra": "Guardarla",
+          "skipCarteDirection":1,
+          "numSkipCarte":2,
+          "img": "/pino.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 42,
+          "titolo": "Pino",
+          "descrizione": "C’è uno di quei serpenti che piace a te in copertina",
+          "testoSinistra": "Dansa Serpentina? Hmm, sembra molto interessante",
+          "testoDestra": "Dansa Serpentina? Hmm, sembra molto interessante",
+          "img": "/pino.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 43,
+          "titolo": "Eleonora",
+          "descrizione": "Mio amico Jules Chéret vuole stampare suo manifesto in un modo particolare. Me lo fai?",
+          "testoSinistra": "Squadra che vince, non si cambia",
+          "testoDestra": "I miracoli non accadono 2 volte",
+          "skipCarteDirection":2,
+          "numSkipCarte":2,
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 44,
+          "titolo": "Eleonora",
+          "descrizione": "Sta volta però mi serve in litografia e utilizzando la quadricromia",
+          "testoSinistra": "QuadriCosa?",
+          "testoDestra": "No problema",
+          "skipCarteDirection":0,
+          "numSkipCarte":3,
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 45,
+          "titolo": "Eleonora",
+          "descrizione": "il risultato era meraviglioso! Me l’hanno copiato tutti al circolo dei artisti ",
+          "testoSinistra": "Ho sempre voluto far parte di un circolo",
+          "testoDestra": "Accontentati di essere stata famosa per un attimo",
+          "skipCarteDirection":2,
+          "numSkipCarte":2,
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 46,
+          "titolo": "Eleonora",
+          "descrizione": "Quindi ti ho convinto? ",
+          "testoSinistra": "mi hai corrotto",
+          "testoDestra": "Direi di si",
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 47,
+          "titolo": "Proprietario",
+          "descrizione": "sono disperato non so cosa fare con Morris",
+          "testoSinistra": "raccontare delle copertine disegnate?",
+          "testoDestra": "mi dispiace capo",
+          "skipCarteDirection":2,
+          "numSkipCarte":3,
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        }, {
+          "id": 48,
+          "titolo": "Proprietario",
+          "descrizione": "Ma e’ geniale!! Conosco un artista innovativo",
+          "testoSinistra": "mi fido di te",
+          "testoDestra": "innovativo in che senso?",
+          "skipCarteDirection":1,
+          "numSkipCarte":2,
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 49,
+          "titolo": "Proprietario",
+          "descrizione": "Beardsley e’ Innovativo nel senso ribelle/sessuale (C)",
+          "testoSinistra": "sembra interessante",
+          "testoDestra": "Vuoi che arrivino le guardie, di nuovo?",
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 50,
+          "titolo": "Pino",
+          "descrizione": "oggi ti ho portato Emporium con una copertina scandalosa (rivista emporium con Salome) (1895)",
+          "testoSinistra": "Metti da parte",
+          "testoDestra": "Apri",
+          "skipCarteDirection":1,
+          "numSkipCarte":2,
+          "img": "/proprietario.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 51,
+          "titolo": "Pino",
+          "descrizione": "Non ti vergogni? L’avete stampata voi!",
+          "testoSinistra": "i tempi sono cambiatis",
+          "testoDestra": "non capisci niente!",
+          "img": "/pino.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 52,
+          "titolo": "Samuele",
+          "descrizione": "Ho scoperto un artista che struttura le sue opere quasi come vere fotografie! ",
+          "testoSinistra": "fammi vedere",
+          "testoDestra": "a che serve, se ce la fotografia",
+          "img": "/samuele.svg",
+          "skipCarteDirection":2,
+          "numSkipCarte":2,
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 53,
+          "titolo": "Samuele",
+          "descrizione": "è fortissimo, non capirai mai chi è",
+          "testoSinistra": "e’ Touluse-Lautrec",
+          "testoDestra": "e’ Touluse-Lautrec",
+          "img": "/samuele.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 54,
+          "titolo": "Eleonora",
+          "descrizione": "Guarda che struttura innovativa del manifesto! ",
+          "testoSinistra": "cosa che e’ cambiato?",
+          "testoDestra": "questa cosa interessa solo te",
+          "img": "/eleonora.svg",
+          "skipCarteDirection":2,
+          "numSkipCarte":2,
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
+        },
+        {
+          "id": 55,
+          "titolo": "Eleonora",
+          "descrizione": "la sua anatomia, Mucha ha evidenziato principali elementi che serve rappresentare",
+          "testoSinistra": "e quindi?",
+          "testoDestra": "Alfons Mucha e’ una persona geniale",
+          "img": "/eleonora.svg",
+          "indicatore": {
+            "etica": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "popolo": {
+              "destra": 0,
+              "sinistra": 0
+            },
+            "progresso": {
+              "destra": 0,
+              "sinistra": 0
+            }
+          }
         }
+        
       ]
     },
     {
