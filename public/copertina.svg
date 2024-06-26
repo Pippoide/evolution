@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_17" data-name="Layer 17" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.77 283.46">
+  <g>
+    <rect x="7.46" y="7.52" width="211.77" height="268.46" fill="#194219" stroke-width="0"/>
+    <path d="M211.74,15.02v253.46H14.97V15.02h196.77M226.74.02H-.03v283.46h226.77V.02h0Z" fill="#f3e9d7" stroke-width="0"/>
+  </g>
+  <rect x="195.32" y="5.84" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="169.82" y="-19.66" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="5.96" y="-19.74" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="-19.54" y="5.76" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="195.32" y="226.71" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="169.82" y="252.21" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="5.96" y="252.17" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <rect x="-19.54" y="226.67" width="51" height="51" fill="none" stroke="#f4ead7" stroke-miterlimit="10" stroke-width="4"/>
+  <g>
+    <polygon points="106.43 185.95 133.85 198.76 125.59 208.28 94.16 194.1 64.18 104.54 77.59 99.05 106.43 185.95" fill="#063" stroke-width="0"/>
+    <polygon points="77.59 99.05 107.15 115.09 133.85 198.76 106.43 185.95 77.59 99.05" fill="#b17f4a" stroke-width="0"/>
+    <polyline points="130.31 108.4 116.86 129.73 103.53 134.86 99.43 139.44 102.35 149.08 109.58 154.72 114.45 154.58 124.58 141.35 149.02 136.6 162.53 120.5 150.24 101.99 130.31 108.4" fill="#ca9e67" stroke-width="0"/>
+  </g>
+</svg>

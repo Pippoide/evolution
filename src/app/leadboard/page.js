@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-
-
 export default function Leadboard() {
     const [rows,setRows] = useState([])
     async function getData() {
@@ -19,7 +17,6 @@ export default function Leadboard() {
             return { error };
         }
     }
-
   
     useEffect(()=>{
         getData();

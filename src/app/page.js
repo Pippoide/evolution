@@ -9,9 +9,9 @@ export default async function Home() {
     <div className="flex flex-col h-full">
       <div className="h-full text-secondary bg-third w-screen flex flex-col justify-center items-center p-12 md:p-6">
         <div className="w-full h-full md:w-1/3 flex justify-between  items-center flex-col">
-          <img className="w-full" src="Logo.svg" alt="logo" />
+          <img className="w-full" src="Logo.svg" alt="logo" draggable="false" />
           <div className="flex flex-col space-y-6 justify-center items-center">
-            <img width={"90%"} height={"90%"} src="cardHome.png" />
+            <img width={"90%"} height={"90%"} src="cardHome.svg" draggable="false" />
             <p className="text-sm font-custom md:text-base lg:text-lg w.full text-center  inline-block !leading-4">
               Vai al tuo lavoro di commesso tipografo e fai scorrere le tue dita
               a sinistra o a destra, rispondendo ai clienti. Modifica l’andamento

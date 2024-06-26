@@ -55,6 +55,7 @@ export default function Game() {
   }, [flipped])
 
 
+
   /** variabili Deck */
   const mazzo = decks.deck[contatoreMazzo];
   const deckLength = decks.deck.length; //Totale Mazzi presenti nel Deck
@@ -66,9 +67,15 @@ export default function Game() {
     cartaLength += decks.deck[i].carta.length
   }
 
+  const [pathCarta, setPathCarta] = useState(carta.img)
   /**controllo del flip back sbagliato */
 
+  useEffect(() => {
+    console.log("contatoreCarta : " + contatoreCarta)
+    //capire come tenere la stessa carta senza aggiornarla se uguale
+    setPathCarta(carta.img + `?timestamp=${new Date().getTime()}`);
 
+  }, [contatoreCarta])
   /** variabili Morte*/
   const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
   const [cartaMorte, setCartaMorte] = useState(mazzoMorte.indicatore);
@@ -86,9 +93,6 @@ export default function Game() {
     }
   };
 
-
-
-
   const scale = useTransform(x, [-200, 0, 200], [1, 1, 1]);
   const rotate = useTransform(x, [-200, 0, 200], [-5, 0, 5]);
   const textOpacityLeft = useTransform(x, [0, -50], [0, 1]);
@@ -105,10 +109,10 @@ export default function Game() {
   const incrementoSwiper = 100 / cartaLength;
   const [positionSwiper, setPositionSwiper] = useState(0)
   useEffect(() => {
-    if(carta.id<0){
+    if (carta.id < 0) {
       setPositionSwiper((0) * incrementoSwiper);
     }
-    else{
+    else {
       setPositionSwiper((carta.id) * incrementoSwiper);
     }
   }, [score])
@@ -232,15 +236,16 @@ export default function Game() {
     setFlipped(false)
   }
 
-  const handleSetScore = () =>{
-    if(carta.id >=0){
-      setScore(prev => prev +1)
+  const handleSetScore = () => {
+    console.log("nuova carta")
+    if (carta.id >= 0) {
+      setScore(prev => prev + 1);
     }
-    
   }
 
 
   const handleDragEnd = (event, info) => {
+
     //pulizia se gia in corso un fakeOneClick
     if (fakeOneClick.current) {
       clearTimeout(fakeOneClick.current);
@@ -260,7 +265,7 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
         }
         checkNextCarta()
-        
+
         console.log("Swipe a destra!");
       } else if (info.offset.x < -100) {
         changeIndicatore(false)
@@ -272,7 +277,7 @@ export default function Game() {
           setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1)
         }
         checkNextCarta()
-       
+
         //nuova carta
         // Esegui azione di swipe a sinistra
         console.log("Swipe a sinistra!");
@@ -289,13 +294,12 @@ export default function Game() {
         setContatoreCarta(prevContatoreCarta => prevContatoreCarta + 1) //nuova carta
       }
       checkNextCarta()
-     
+
     }
 
     setAdviceEtica(false)
     setAdvicePopolo(false)
     setAdviceProgresso(false)
-
 
     fakeOneClick.current = setTimeout(() => {
       SetInfoOffsetX(0);
@@ -311,9 +315,8 @@ export default function Game() {
       }
     };
   }, []);
-  
-  const checkNextCarta = () => {
 
+  const checkNextCarta = () => {
     if (contatoreCarta >= mazzoLength - 1) {
       setContatoreCarta(0) //resetta la carta
       if (contatoreMazzo < deckLength - 1) {
@@ -342,19 +345,17 @@ export default function Game() {
   }
   //animazione nuove mazzo
   const handleAnimationComplete = (x) => {
+    console.log(x)
     setTimeout(() => {
+      console.log("end")
       setAnimationNewCard(false)
-    }, 1500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
+    }, (x * 100) + 500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
-
-
-  useEffect(()=>{
-    console.log("cambiato path")
-  },[carta.img])
 
   const [titleHeight, setTitleHeight] = useState(0);
   const [descriptionHeight, setDescriptionHeight] = useState(0);
 
+  {/**update size card */ }
   useEffect(() => {
     const handleResize = () => {
       if (containerRef.current) { //se esiste l'elemento
@@ -375,12 +376,6 @@ export default function Game() {
 
     return () => window.removeEventListener('resize', handleResize);
   })
-
-  const [key, setKey] = useState(0);
-
-  useEffect(() => {
-    setKey(new Date().getTime());
-  }, [score]);
 
   return (
     <main className="flex w-full h-full md:h-screen overflow-hidden flex-col items-center justify-center ">
@@ -409,7 +404,9 @@ export default function Game() {
         <div ref={containerRef} className='w-full h-full flex justify-between flex-col items-center py-3 px-12 md:px-16'>
           {/** titolo carta */}
           <div className="w-full flex flex-col justify-center items-center text-center font-custom" style={{ height: titleHeight + "%" }}>
-            <h1 className='font-custom text-secondary text-3xl '>{statusGioco? cartaMorte.titolo: carta.titolo}</h1>
+            <h1 className='font-custom text-secondary text-3xl ' dangerouslySetInnerHTML={{
+              __html: statusGioco ? cartaMorte.titolo : carta.titolo
+            }}></h1>
           </div>
 
           {/** carta*/}
@@ -425,11 +422,11 @@ export default function Game() {
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                 {statusGioco ? (//carta morte
                   <div className="w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl " onClick={handleFlip}>
-                    <Image key={key} sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill="true" 	></Image>
+                    <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill="true" 	></Image>
                   </div>
                 ) : (
                   <motion.div
-                    drag="x"
+                    drag={animationNewCard ? false : "x"}
                     dragConstraints={{ left: 0, right: 0 }}
                     dragControls={controls}
                     onDragStart={handleDragStart}
@@ -452,10 +449,10 @@ export default function Game() {
                             initial={{ opacity: 0, y: -100 }}
                             exit={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.6 + (index * 0.1) }}
+                            transition={{ duration: 0.5, delay: (index * 0.1) }}
                             onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
                           >
-                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill="true"	></Image>
+                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/copertina.svg" className="point-event-none rounded-3xl " draggable="false" fill="true"	></Image>
                           </motion.div>
                         })) : ("")}
 
@@ -466,12 +463,11 @@ export default function Game() {
                         (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
                       {!carta.testoSinistra ? ("") :
                         (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
-                                <img sizes="100vw, 100vw" alt="carta image swipe" src={carta.img+`?timestamp=${new Date().getTime()}`} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill></img>
-
+                      <img sizes="100vw, 100vw" alt="carta image swipe" src={pathCarta} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill="true"></img>
                     </div>
                   </motion.div>)}
               </div>
-              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
+              <div id="back" onClick={statusGioco ?  (e) => e.stopPropagation() : () => { }} className="z-50 absolute rounded-3xl w-full h-full bg-primary-light flex items-center justify-center rotate-y-180 transition-all ease-out duration-300"
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
                   <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
@@ -494,16 +490,16 @@ export default function Game() {
             </div>
 
             {/**carta fissa retro */}
-            <div className="w-full aspect-4/5 absolute top-0 left-0 z-0">
+            <div className="w-full relative z-0">
               <div className="w-full aspect-4/5 relative ">
-                <Image sizes="100vw, 100vw" alt="asd" src="/Abstract Blue Carte Da Gioco Texture.jpg" className="point-event-none rounded-3xl " draggable="false" fill="true" ></Image>
+                <Image sizes="100vw, 100vw" alt="asd" src="/copertina.svg" className="point-event-none rounded-3xl bg-cover" draggable="false" fill="true" ></Image>
               </div>
             </div>
           </div>
 
           {/** descrizione carta */}
           <div className="w-full flex flex-col text-center font-custom justify-center items-center " style={{ height: descriptionHeight + "%" }}>
-            <p className='text-secondary text-lg !leading-5'> {statusGioco? cartaMorte.descrizione : carta.descrizione}</p>
+            <p className='text-secondary text-lg !leading-5' dangerouslySetInnerHTML={{__html :statusGioco ? cartaMorte.descrizione : carta.descrizione}}></p>
           </div>
         </div>
 
