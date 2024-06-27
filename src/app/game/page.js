@@ -444,20 +444,20 @@ export default function Game() {
                 ) : (
                   vittoria ? (<div className='w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl'>
                     <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
-                      <form className="flex flex-col w-full p-16" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
-                        event.preventDefault();
-                        try {
-                          const response = await insertData();
-                          console.log('before push:', response)
-                          router.push('/')
-                        } catch (err) {
-                          console.error(err);
-                        }
-                      }}>
-                        <h1>Hai vinto</h1>
-                        <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-                        <button type="submit">Ora puoi fare l orale di Ippolito</button>
-                      </form>
+                    <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
+                      event.preventDefault();
+                      try {
+                        const response = await insertData();
+                        console.log('before push:', response)
+                        router.push('/')
+                      } catch (err) {
+                        console.error(err);
+                      }
+                    }}>
+                      <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai vinto con {score} mosse</h1>
+                      <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
+                      <button type="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
+                    </form>
                     </div>
                   </div>) : (
                     <motion.div
@@ -503,11 +503,11 @@ export default function Game() {
                       </div>
                     </motion.div>))}
               </div>
-              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className={`${carta.flip ? "p-6" : ""} rounded-3xl  z-50 absolute w-full h-full bg-secondary flex items-center justify-center rotate-y-180 transition-all ease-out duration-300`}
+              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className={`${carta.flip && !statusGioco ? "p-6" : ""} rounded-3xl  z-50 absolute w-full h-full bg-secondary flex items-center justify-center rotate-y-180 transition-all ease-out duration-300`}
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
-                  <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
-                    <form className="flex flex-col w-full p-16" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
+                  <div className="bg-primary w-full h-full flex flex-col rounded-3xl p-6  ">
+                    <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
                       event.preventDefault();
                       try {
                         const response = await insertData();
@@ -517,9 +517,9 @@ export default function Game() {
                         console.error(err);
                       }
                     }}>
-                      <h1>Assurdo eri cosi vicino</h1>
-                      <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-                      <button type="submit">Resta nella storia</button>
+                      <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai perso con {score} mosse</h1>
+                      <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
+                      <button type="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
                     </form>
                   </div>) : (
                   !carta.flip ?

@@ -1,6 +1,8 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import HomeButton from "../homeButton.js"
+
 
 export default function Leadboard() {
     const [rows,setRows] = useState([])
@@ -25,7 +27,8 @@ export default function Leadboard() {
     return (
         <div className="w-full h-screen bg-third flex justify-center p-12 md:px-0">
             <div className="w-full md:w-2/5 ">
-                <div className="mb-6 md:mb-12 text-secondary ">
+                <div className="mb-6 md:mb-12 text-secondary flex flex-col ">
+                    <HomeButton/>
                     <h1 className=" text-secondary md:text-6xl ">Classifica</h1>
                     <p className="text-secondary text-xs md:text-lg">
                         Qui sono presenti le geste eroiche ti tutti i giocatori che sono riusciti a lasciare un segno nella storia della grafica
