@@ -5,7 +5,7 @@
     .sorriso{
       stroke-dasharray: 100!important;
       stroke-dashoffset: 100;
-      animation: sorrisoAnimation 2s linear forwards;
+      animation: sorrisoAnimation 3s linear forwards;
     }
     @keyframes sorrisoAnimation {
       from {

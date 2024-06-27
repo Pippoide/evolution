@@ -48,7 +48,7 @@
         .mano{
           transform: translateY(20%);
           transform-origin: center center !important;
-          animation: manoAnimation 1.5s ease-in-out 3.5s 1 forwards;
+          animation: manoAnimation 1.5s ease-in-out 1.5s 1 forwards;
         }
         @keyframes manoAnimation{
           0%{
@@ -65,7 +65,7 @@
       .lama{
         transform: translate(6%,7%);
         transform-origin: center center !important;
-        animation: lamaAnimation .5s ease-out 5s 1 forwards;
+        animation: lamaAnimation .5s ease-out 3s 1 forwards;
       }
       @keyframes lamaAnimation{
         0%{

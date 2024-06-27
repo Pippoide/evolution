@@ -34,7 +34,7 @@
     </style>
   </def>
   <rect id="sfondo" x="0" y="0" width="226.77" height="283.46" fill="#53a9b8" stroke-width="0"/>
-  <g id="corpo" class="trimolioImbarrazato">
+  <g id="corpo" >
     <g id="claudio">
       <g>
         <path d="M126.76,146.54s-.05-.02-.07-.03h0s.05,0,.07.03Z" fill="#f58925" stroke-width="0"/>
