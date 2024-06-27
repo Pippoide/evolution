@@ -1,104 +1,87 @@
 {
-    "deck":[
-        {
-            "nomeMazzo" : "Generico",
-            "indicatore":{
-                "etica":{
-                    "titolo":"sei morto etica",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png"
-                },
-                "progresso":{
-                    "titolo":"sei morto progresso",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                },
-                "popolo":{
-                    "titolo":"sei morto popolo",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                }
-            }
+  "deck": [
+    {
+      "nomeMazzo": "Libro",
+      "indicatore": {
+        "etica": {
+          "plus": {
+            "titolo": "Sei troppo buono!",
+            "descrizione": "Hai deciso di adottare l'orfanella Matilde, il proprietario non vuole bambini in negozio è ti ha licenziato",
+            "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "Sei senza cuore",
+            "descrizione": "Il consorzio dei grafici, ti ha reputato senza anima. Devi essere allontanato",
+            "img": "/cartaMorte.svg"
+          }
         },
-        {
-            "nomeMazzo" : "Introduzione",
-            "indicatore":{
-                "etica":{
-                    "titolo":"sei morto mazzo2",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png"
-                },
-                "progresso":{
-                    "titolo":"sei morto progresso 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                },
-                "popolo":{
-                    "titolo":"sei morto popolo 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                }
-            }
+        "progresso": {
+          "less": {
+            "titolo": "Siamo tornati nell'era delle pietro",
+            "descrizione": "Non sappiamo che è successo, ma il mondo è tornato al periodo della caccia",
+            "img": "/cartaMorte.svg"
+          },
+          "plus": {
+            "titolo": "siamo nel 2077",
+            "descrizione": "Il mondo è progreddito è tu sei rimastro troppo indietro, è tempo di cambiarti",
+            "img": "/cartaMorte.svg"
+          }
         },
-        {
-            "nomeMazzo" : "Introduzione",
-            "indicatore":{
-                "etica":{
-                    "titolo":"sei morto etica 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png"
-                },
-                "progresso":{
-                    "titolo":"sei morto progresso 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                },
-                "popolo":{
-                    "titolo":"sei morto popolo 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                }
-            }
-        },
-        {
-            "nomeMazzo" : "Introduzione",
-            "indicatore":{
-                "etica":{
-                    "titolo":"sei morto etica 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png"
-                },
-                "progresso":{
-                    "titolo":"sei morto progresso 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                },
-                "popolo":{
-                    "titolo":"sei morto popolo 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                }
-            }
-        },
-        {
-            "nomeMazzo" : "Introduzione",
-            "indicatore":{
-                "etica":{
-                    "titolo":"sei morto etica 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png"
-                },
-                "progresso":{
-                    "titolo":"sei morto progresso 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                },
-                "popolo":{
-                    "titolo":"sei morto popolo 1",
-                    "descrizione": "aahhahahahah sei morto loser",
-                    "img":"/cartaMorte.png" 
-                }
-            }
+        "popolo": {
+          "less": {
+            "titolo": "Bancarotta",
+            "descrizione": "Ti sei dimenticato di ritirare 200$ dal via e ora sei senza niente",
+            "img": "/cartaMorte.svg"
+          },
+          "plus": {
+            "titolo": "To rich to work",
+            "descrizione": "I soldi ti hanno datto alla testa, oramai sei cambiato...",
+            "img": "/cartaMorte.svg"
+          }
         }
-    ]
+      }
+    },
+    {
+      "nomeMazzo": "Fine",
+      "indicatore": {
+        "etica": {
+          "plus": {
+            "titolo": "Utopia",
+            "descrizione": "L'IA è perfettamente regolamentata, girano più soldi per tutti e ora tutti possono provare a fare grafica. ",
+            "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "EU abbandona gli artisti",
+            "descrizione": "Non far passare la legge sulle normative AI ha generato una serie di disoccupazione per i grafici, che ha colpito anche te",
+            "img": "/cartaMorte.svg"
+          }
+        },
+        "progresso": {
+          "less": {
+            "titolo": "Terminator?",
+            "descrizione": "Samuele si è dimenticato di impostare il valore di etica nella sua IA, ora sta cercando di uccidere tutti gli umani",
+            "img": "/cartaMorte.svg"
+          },
+          "plus": {
+            "titolo": "Utopia",
+            "descrizione": "L'IA è perfettamente regolamentata, girano più soldi per tutti e ora tutti possono provare a fare grafica. ",
+            "img": "/cartaMorte.svg"
+          }
+        },
+        "popolo": {
+          "plus": {
+            "titolo": "Utopia",
+            "descrizione": "L'IA è perfettamente regolamentata, girano più soldi per tutti e ora tutti possono provare a fare grafica. ",
+            "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "Meglio soli che mal accompagnati",
+            "descrizione": "Quella Ai che hai scelto al posto dei colleghi, ti ha rubato il lavoro.",
+            "img": "/cartaMorte.svg"
+          }
+        }
+      }
+    }
+  
+  ]
 }

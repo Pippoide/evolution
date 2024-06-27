@@ -23,6 +23,7 @@ export default function Game() {
   const containerRef = useRef(null);
 
   //IndicatoriGioco
+  const [vittoria, setVittoria] = useState(false);
   const [indicatoreProgresso, setIndicatoreProgresso] = useState(50);
   const [indicatoreEtica, setIndicatoreEtica] = useState(50);
   const [indicatorePopolo, setIndicatorePopolo] = useState(50);
@@ -69,7 +70,6 @@ export default function Game() {
 
   const [pathCarta, setPathCarta] = useState(carta.img)
   /**controllo del flip back sbagliato */
-  console.log(carta)
 
   useEffect(() => {
     console.log("contatoreCarta : " + contatoreCarta)
@@ -78,7 +78,7 @@ export default function Game() {
 
   }, [contatoreCarta])
   /** variabili Morte*/
-  const mazzoMorte = deckDeath.deck[contatoreMazzo + 1];
+  const mazzoMorte = deckDeath.deck[contatoreMazzo];
   const [cartaMorte, setCartaMorte] = useState(mazzoMorte.indicatore);
 
   const controls = useDragControls()
@@ -133,15 +133,30 @@ export default function Game() {
       setStatusGioco(true);
       if (indicatoreEtica >= 100 || indicatoreEtica <= 0) {
         setStatusGioco(true);
-        setCartaMorte(prev => prev.etica)
+        if (indicatoreEtica >= 100) {
+          setCartaMorte(prev => prev.etica.plus)
+        }
+        else {
+          setCartaMorte(prev => prev.etica.less)
+        }
       }
       if (indicatorePopolo >= 100 || indicatorePopolo <= 0) {
         setStatusGioco(true);
-        setCartaMorte(prev => prev.popolo)
+        if (indicatorePopolo >= 100) {
+          setCartaMorte(prev => prev.popolo.plus)
+        }
+        else {
+          setCartaMorte(prev => prev.popolo.less)
+        }
       }
       if (indicatoreProgresso >= 100 || indicatoreProgresso <= 0) {
         setStatusGioco(true);
-        setCartaMorte(prev => prev.progresso)
+        if (indicatoreProgresso >= 100) {
+          setCartaMorte(prev => prev.progresso.plus)
+        }
+        else {
+          setCartaMorte(prev => prev.progresso.less)
+        }
       }
     }
     else {
@@ -324,7 +339,7 @@ export default function Game() {
         setContatoreMazzo(prevMazzo => prevMazzo + 1)
       } //vai al prossimo mazzo
       else {
-        console.log("hai vinto")
+        setVittoria(true)
       }
     }
   }
@@ -348,7 +363,7 @@ export default function Game() {
   const handleAnimationComplete = (x) => {
     console.log(x)
     setTimeout(() => {
-      console.log("end")
+      console.log("animazione finita")
       setAnimationNewCard(false)
     }, (x * 100) + 500); // Sostituisci 1000 con la durata dell'animazione più il ritardo
   }
@@ -424,51 +439,71 @@ export default function Game() {
                 {statusGioco ? (//carta morte
                   <div className="w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl " onClick={handleFlip}>
                     <Image sizes="100vw, 100vw" alt="asd" src={cartaMorte.img} className=" point-event-none rounded-3xl z-0" draggable="false" fill="true" 	></Image>
+
                   </div>
                 ) : (
-                  <motion.div
-                    drag={animationNewCard ? false : "x"}
-                    dragConstraints={{ left: 0, right: 0 }}
-                    dragControls={controls}
-                    onDragStart={handleDragStart}
-                    onDragEnd={handleDragEnd}
-                    onDrag={handleDrag}
-                    className="w-full aspect-4/5 relative z-10"
-                    style={{
-                      x,
-                      scale,
-                      rotate
-                    }}
-                  >
-                    {/**animazione carte retro */}
-                    <div>
-                      {animationNewCard ? (
-                        mazzo.carta.map((x, index) => { //matteo qui non va
-                          return <motion.div
-                            className="w-full rounded-3xl aspect-4/5 absolute "
-                            key={index}
-                            initial={{ opacity: 0, y: -100 }}
-                            exit={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: (index * 0.1) }}
-                            onAnimationComplete={index == (mazzo.carta.length - 1) ? handleAnimationComplete(index) : ""}
-                          >
-                            <Image sizes="100vw, 100vw" alt="carta sfondo" src="/copertina.svg" className="point-event-none rounded-3xl " draggable="false" fill="true"	></Image>
-                          </motion.div>
-                        })) : ("")}
+                  vittoria ? (<div className='w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl'>
+                    <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
+                      <form className="flex flex-col w-full p-16" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
+                        event.preventDefault();
+                        try {
+                          const response = await insertData();
+                          console.log('before push:', response)
+                          router.push('/')
+                        } catch (err) {
+                          console.error(err);
+                        }
+                      }}>
+                        <h1>Hai vinto</h1>
+                        <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
+                        <button type="submit">Ora puoi fare l'orale di Ippolito</button>
+                      </form>
+                    </div>
+                  </div>) : (
+                    <motion.div
+                      drag={animationNewCard ? false : "x"}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragControls={controls}
+                      onDragStart={handleDragStart}
+                      onDragEnd={handleDragEnd}
+                      onDrag={handleDrag}
+                      className="w-full aspect-4/5 relative z-10"
+                      style={{
+                        x,
+                        scale,
+                        rotate
+                      }}
+                    >
+                      {/**animazione carte retro */}
+                      <div>
+                        {animationNewCard ? (
+                          mazzo.carta.slice(0, 3).map((x, index) => {
+                            //matteo qui non va
+                            return <motion.div
+                              className="w-full rounded-3xl aspect-4/5 absolute "
+                              key={index}
+                              initial={{ opacity: 0, y: -100 }}
+                              exit={{ opacity: 0, y: 100 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.5, delay: (index * 0.1) }}
+                              onAnimationComplete={index == (2) ? handleAnimationComplete(index) : ""}
+                            >
+                              <Image sizes="100vw, 100vw" alt="carta sfondo" src="/copertina.svg" className="point-event-none rounded-3xl " draggable="false" fill="true"	></Image>
+                            </motion.div>
+                          })) : ("")}
 
-                    </div>
-                    {/** carta che scorre */}
-                    <div className="w-full aspect-4/5 relative  ">
-                      {!carta.testoDestra ? ("") :
-                        (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
-                      {!carta.testoSinistra ? ("") :
-                        (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
-                      <img sizes="100vw, 100vw" alt="carta image swipe" src={pathCarta} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill="true"></img>
-                    </div>
-                  </motion.div>)}
+                      </div>
+                      {/** carta che scorre */}
+                      <div className="w-full aspect-4/5 relative  ">
+                        {!carta.testoDestra ? ("") :
+                          (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none text-right absolute right-0 p-5 " style={{ opacity: textOpacityRight }}>{carta.testoDestra}</motion.h1>)}
+                        {!carta.testoSinistra ? ("") :
+                          (<motion.h1 className="md:text-3xl text-xl h-1/4 font-custom w-full rounded-t-3xl z-10 text-secondary bg-black-opacity cursor-pointer-none absolute text-left left-0 p-5" style={{ opacity: textOpacityLeft }}>{carta.testoSinistra}</motion.h1>)}
+                        <img sizes="100vw, 100vw" alt="carta image swipe" src={pathCarta} className="point-event-none rounded-3xl z-0 bg-cover" draggable="false" fill="true"></img>
+                      </div>
+                    </motion.div>))}
               </div>
-              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className={`${carta.flip? "rounded-3xl p-6":""} z-50 absolute w-full h-full bg-secondary flex items-center justify-center rotate-y-180 transition-all ease-out duration-300`}
+              <div id="back" onClick={statusGioco ? (e) => e.stopPropagation() : () => { }} className={`${carta.flip ? "p-6" : ""} rounded-3xl  z-50 absolute w-full h-full bg-secondary flex items-center justify-center rotate-y-180 transition-all ease-out duration-300`}
                 style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(180deg)', WebkitTransform: 'rotateY(180deg)' }}>
                 {statusGioco ? (
                   <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
