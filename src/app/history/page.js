@@ -2,7 +2,7 @@
 import { useState } from "react";
 import HomeButton from "../homeButton.js"
 
-export default function history(){
+export default function History(){
     const [contatoreMazzo, setContatoreMazzo] = useState(0);
     const [contatoreCarta, setContatoreCarta] = useState(0);
     const decks = require("../../deck.json")
