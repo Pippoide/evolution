@@ -456,7 +456,7 @@ export default function Game() {
                       }}>
                         <h1>Hai vinto</h1>
                         <input type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-                        <button type="submit">Ora puoi fare l'orale di Ippolito</button>
+                        <button type="submit">Ora puoi fare l orale di Ippolito</button>
                       </form>
                     </div>
                   </div>) : (
