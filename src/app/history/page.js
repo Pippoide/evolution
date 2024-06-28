@@ -21,9 +21,9 @@ export default function History(){
             <div className="w-full h-auto md:h-[30%] flex flex-col md:flex-row items-center overflow-auto space-y-3 md:space-y-0 md:space-x-3">
             {mazzo.carta.filter((carta) => carta.important).map((carta,index)=>{
             return (
-            <div className="h-[18rem] md:h-full w-min rounded-3xl flex flex-col space-y-2"> 
+            <div key={index}  className="h-[18rem] md:h-full w-min rounded-3xl flex flex-col space-y-2"> 
                 <p className="font-custom w-full text-center bg-primary-light text-secondary rounded-full ">{carta.anno}</p>
-                <div key={index} className='overflow-auto h-full p-2 flex-col rounded-xl  bg-primary-light '>
+                <div className='overflow-auto h-full p-2 flex-col rounded-xl  bg-primary-light '>
                     <img className='point-event-none bg-cover' sizes='100vw, 30vw' src={carta.flipImg}></img>
                     <p className='w-full h-full py-6 font-custom '>
                         {carta.flipDescrizione}
