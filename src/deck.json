@@ -91,7 +91,7 @@
             "img": "/claudio.svg",
             "indicatore": {
               "etica": {
-                "destra": -100,
+                "destra": 0,
                 "sinistra": 0
               },
               "popolo": {
@@ -384,12 +384,12 @@
             "img": "/proprietario.svg",
             "indicatore": {
               "etica": {
-                "destra": 10,
+                "destra": 0,
                 "sinistra": 0
               },
               "popolo": {
-                "destra": 0,
-                "sinistra": 0
+                "destra": -100,
+                "sinistra": -100
               },
               "progresso": {
                 "destra": 0,
