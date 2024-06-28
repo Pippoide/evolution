@@ -22,6 +22,8 @@ export default function Game() {
 
   const containerRef = useRef(null);
 
+  const [submit,setSubmit] = useState(false);
+
   //IndicatoriGioco
   const [vittoria, setVittoria] = useState(false);
   const [indicatoreProgresso, setIndicatoreProgresso] = useState(50);
@@ -447,16 +449,18 @@ export default function Game() {
                     <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
                       event.preventDefault();
                       try {
+                        setSubmit(true);
                         const response = await insertData();
                         console.log('before push:', response)
-                        router.push('/')
+                        router.push('/leadboard')
                       } catch (err) {
+                        setSubmit(false);
                         console.error(err);
                       }
                     }}>
                       <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai vinto con {score} mosse</h1>
-                      <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-                      <button type="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
+                      <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)} ></input>
+                      <button disabled={submit} stype="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
                     </form>
                     </div>
                   </div>) : (
@@ -510,16 +514,18 @@ export default function Game() {
                     <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
                       event.preventDefault();
                       try {
+                        setSubmit(true);
                         const response = await insertData();
                         console.log('before push:', response)
-                        router.push('/')
+                        router.push('/leadboard')
                       } catch (err) {
+                        setSubmit(false)
                         console.error(err);
                       }
                     }}>
                       <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai perso con {score} mosse</h1>
                       <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)}></input>
-                      <button type="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
+                      <button type="submit" className=' bg-secondary p-3 rounded-full font-custom' disabled={submit}>Invia</button>
                     </form>
                   </div>) : (
                   !carta.flip ?
