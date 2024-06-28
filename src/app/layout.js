@@ -1,6 +1,7 @@
 import "./globals.css";
 
 import Head from 'next/head';
+import { Analytics } from "@vercel/analytics/react"
 
 
 export const metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className=" flex justify-center items-center w-full bg-third h-dvh sm:h-screen">{children}</body>
+      <body className=" flex justify-center items-center w-full bg-third h-dvh sm:h-screen">
+        {children}
+        <Analytics />
+        </body>
     </html>
   );
 }
