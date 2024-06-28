@@ -88,6 +88,7 @@
             "testoDestra": "Tutto ciò che desideri ;)",
             "flip": false,
             "anno": "1499",
+            "important":false,
             "img": "/claudio.svg",
             "indicatore": {
               "etica": {
@@ -142,7 +143,7 @@
             "testoSinistra": " ",
             "testoDestra": " ",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1499",
             "img": "/claudioArrabbiato.svg",
             "indicatore": {
@@ -169,7 +170,7 @@
             "testoSinistra": " ",
             "testoDestra": " ",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1499",
             "img": "/claudioImbarazzato.svg",
             "indicatore": {
@@ -194,7 +195,7 @@
             "testoSinistra": " ",
             "testoDestra": " ",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1499",
             "img": "/claudio.svg",
             "indicatore": {
@@ -219,7 +220,7 @@
             "testoSinistra": "Aprila",
             "testoDestra": "Metti da parte",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1501",
             "skipCarteDirection": 2,
             "numSkipCarte": 2,
@@ -275,7 +276,7 @@
             "skipCarteDirection": 1,
             "numSkipCarte": 2,
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1524",
             "img": "/pino.svg",
             "indicatore": {
@@ -327,7 +328,7 @@
             "testoSinistra": "Male",
             "testoDestra": "Bene",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1524",
             "img": "/proprietario.svg",
             "indicatore": {
@@ -354,7 +355,7 @@
             "skipCarteDirection": 2,
             "numSkipCarte": 2,
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1524",
             "img": "/proprietario.svg",
             "indicatore": {
@@ -379,7 +380,7 @@
             "testoSinistra": " ",
             "testoDestra": " ",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1524",
             "img": "/proprietario.svg",
             "indicatore": {
@@ -404,7 +405,7 @@
             "testoSinistra": "hai acquisito la stampante a caratteri mobili",
             "testoDestra": "hai acquisito la stampante a caratteri mobili",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1524",
             "img": "/proprietario.svg",
             "indicatore": {
@@ -487,7 +488,7 @@
             "testoSinistra": "Beh non e’ mica un Baskerville",
             "testoDestra": "Lo prendo, faro ingelosire tutti i Bodoniani",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1783",
             "img": "/gianmarco.svg",
             "indicatore": {
@@ -543,7 +544,7 @@
             "skipCarteDirection": 0,
             "numSkipCarte": 2,
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1810",
             "img": "/gastoro.svg",
             "indicatore": {
@@ -568,7 +569,7 @@
             "testoSinistra": "Ma che dice, io davvero…",
             "testoDestra": "Ha ragione, mi scusi non accadrà più",
             "flip": true,
-            "important":true,
+            "important":false,
             "anno": "1810",
             "img": "/gastoro.svg",
             "indicatore": {
@@ -1909,7 +1910,7 @@
           {
             "id": 69,
             "titolo": "Samuele",
-            "descrizione": "Sono stato ad un spettacolo quasi futuristico (1914)",
+            "descrizione": "Sono stato ad un spettacolo quasi futuristico ",
             "testoSinistra": "ah, quello di Cambellotti?",
             "testoDestra": "di nuovo frequenti circuiti strani?",
             "flip": true,
@@ -4429,7 +4430,7 @@
             "anno": "1958",
             "flip": true,
             "flipImg":"https://www.theprintarkive.co.uk/cdn/shop/products/1092-Neue-Grafik-1958-LMNV-1_1200x1200.jpg?v=1663775971",
-           
+            "flipDescrizione":" ",
             "important":true,
             "skipCarteDirection": 1,
             "numSkipCarte": 4,
@@ -4983,7 +4984,7 @@
             "anno": "1972",
             "flip": true,
             "flipimage": "https://3.bp.blogspot.com/_U7N6CH5mIhQ/TJJy5_JTPLI/AAAAAAAAHBI/Yjx5QJ9aMQU/s1600/op_art.jpg",
-           
+            "flipDescrizione":"optical art",
             "important":true,
             "indicatore": {
               "etica": {
