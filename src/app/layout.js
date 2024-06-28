@@ -2,6 +2,8 @@ import "./globals.css";
 
 import Head from 'next/head';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 
 export const metadata = {
@@ -18,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className=" flex justify-center items-center w-full bg-third h-dvh sm:h-screen">
         {children}
         <Analytics />
+        <SpeedInsights />
         </body>
     </html>
   );
