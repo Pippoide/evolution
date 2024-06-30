@@ -16,26 +16,26 @@
           }
         },
         "progresso": {
-          "less": {
-            "titolo": "Siamo tornati nell'era delle pietro",
-            "descrizione": "Non sappiamo che è successo, ma il mondo è tornato al periodo della caccia",
-            "img": "/cartaMorte.svg"
-          },
           "plus": {
             "titolo": "siamo nel 2077",
             "descrizione": "Il mondo è progreddito è tu sei rimastro troppo indietro, è tempo di cambiarti",
             "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "Siamo tornati nell'era delle pietro",
+            "descrizione": "Non sappiamo che è successo, ma il mondo è tornato al periodo della caccia",
+            "img": "/cartaMorte.svg"
           }
         },
         "popolo": {
-          "less": {
-            "titolo": "Bancarotta",
-            "descrizione": "Ti sei dimenticato di ritirare 200$ dal via e ora sei senza niente",
-            "img": "/cartaMorte.svg"
-          },
           "plus": {
             "titolo": "To rich to work",
             "descrizione": "I soldi ti hanno datto alla testa, oramai sei cambiato...",
+            "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "Bancarotta",
+            "descrizione": "Ti sei dimenticato di ritirare 200$ dal via e ora sei senza niente",
             "img": "/cartaMorte.svg"
           }
         }
@@ -57,14 +57,14 @@
           }
         },
         "progresso": {
-          "less": {
-            "titolo": "Terminator?",
-            "descrizione": "Samuele si è dimenticato di impostare il valore di etica nella sua IA, ora sta cercando di uccidere tutti gli umani",
-            "img": "/cartaMorte.svg"
-          },
           "plus": {
             "titolo": "Utopia",
             "descrizione": "L'IA è perfettamente regolamentata, girano più soldi per tutti e ora tutti possono provare a fare grafica. ",
+            "img": "/cartaMorte.svg"
+          },
+          "less": {
+            "titolo": "Terminator?",
+            "descrizione": "Samuele si è dimenticato di impostare il valore di etica nella sua IA, ora sta cercando di uccidere tutti gli umani",
             "img": "/cartaMorte.svg"
           }
         },
@@ -82,6 +82,5 @@
         }
       }
     }
-  
   ]
 }
