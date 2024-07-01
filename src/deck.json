@@ -5140,8 +5140,8 @@
           "testoDestra": "Si, 5 al chilogramo",
           "img": "/matilde.svg",
           "important":true,
-          "flip": true,
-          "flipimage": "https://i.pinimg.com/originals/39/21/79/392179d2a1433d7bf5108cd7f5f26c28.jpg",
+          "flip":true,
+          "flipimage":"https://d7hftxdivxxvm.cloudfront.net/?height=640&quality=80&resize_to=fit&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2FCkn5MpYcEE3uNgxzt8xWqA%2Flarge.jpg&width=451",
           "flipDescrizione":"Erberto Carboni ha lavorato p principalmente nell’ambito pubblicitario, più noti sono i suoi lavori per la Barilla, i Pavesini e l’olio bertolli",
 
           "indicatore": {
@@ -5642,7 +5642,7 @@
           "testoDestra": "Non mi piacciono queste cose politiche",
           "img": "/eleonora.svg",
           "flip": true,
-          "flipimage":"https://www.pixartprinting.it/blog/wp-content/uploads/2021/03/3-1-723x1024.jpg",
+          "flipimage":"https://www.researchgate.net/publication/299374763/figure/fig3/AS:389120665899011@1469785004039/Figura-26-Nie-Tadeusz-Trepkowski-1953.png",
           "flipDescrizione":"La prima produzione grafica richiesta dopo la guerra è un’aggressiva propaganda politica. In questo contesto emerge Tadeusz Trepkowski, che al realismo socialista, modellato sulla propaganda sovietica, contrappone manifesti caratterizzati da uno stile simbolico e metaforico e un approccio riduzionista, che mira alla forma più semplice e di impatto.",
           "important":true,
 
@@ -5767,7 +5767,7 @@
           }
         },
         {
-          "id": 212,
+          "id":212,
           "titolo": "Pino",
           "descrizione": "Ti piacciono, allora guarda questa geniale di Armando Testa (Pirelli di Armando Testa)",
           "testoSinistra": "Non mi uscirà dalla testa come il punto mes",
@@ -5852,7 +5852,7 @@
           "testoDestra": "Allontana quell’obbrobrio da me!",
           "img": "/samuele.svg",
           "anno": "1969",
-          "flip": true,
+          "flip":true,
           "flipImg":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN9KayHeguEUBJL_Cw5DwMi8pvFRiRtYXO4dtnXmbe0SAXMJhiJGhVv-5ZgigZ-tx1HQBeTn2kFqInsUlGT0kFk5LochegMv2FM-7bhiK1n-EXU944H9XnJjDfsR9EdFL1hrjYNlPT6Q/s400/jan_lenica_wozzeck.jpg",
           "flipDescrizione":"Jan Lenica  è stato uno dei più grandi grafici polacchi. Al suo attivo più di duecento manifesti, sopratutto per il teatro e il cinema. Membro dell'AGI, Alliance Graphique Internationale. ",
           "important":true,
@@ -5982,7 +5982,7 @@
           "img": "/gastoro.svg",
           "anno":  "1891",
           "important":true,
-          "flip": true,
+          "flip":true,
           "flipimage": "https://i.pinimg.com/736x/3f/6e/91/3f6e9104786fa2ac7ddeeb0f6839a3e5.jpg",
           "flipDescrizione": "Nel 1956 Giovanni Pintori dedica alla Tetractys – “sorella maggiore” della Divisumma 24, uscita in quell’anno – uno dei suoi più noti manifesti. La serie di frecce colorate che si articolano in varie diramazioni richiama l’idea di un percorso logico, complesso, ma anche ricco di possibilità o scelte alternative. Il calcolo meccanico è un frutto della tecnologia e della razionalità del progetto: i percorsi che la macchina deve compiere per effettuare i calcoli richiesti sono molteplici, ma non casuali, e conducono con sicurezza al risultato finale.",   
           "indicatore": {
@@ -6210,11 +6210,11 @@
         {
           "id": 229,
           "titolo": "Pino",
-          "descrizione": "Queste poi sono particolarmente belle (Quik, Neue Reviewm, Twen, Nova",
+          "descrizione": "Queste poi sono particolarmente belle",
           "testoSinistra": "Sopratutto i temi sono cambiati",
           "testoDestra": "Il lavoro di lettering è mostruso",
           "img": "/pino.svg",
-          "flip": true,
+          "flip":true,
           "important":true,
           "flipimage": "https://i.etsystatic.com/11123470/r/il/b72133/5649287994/il_570xN.5649287994_d1b4.jpg",
           "flipDescrizione":"Cover della rivista Twen",
@@ -6688,7 +6688,7 @@
           "important":true,
           "flip":true,
           "flipDescrizione": "Fukuda Shigeo. Negli anni ‘60 nasce in lui un interesse verso l'illusione: è così che crea le sue opere più celebri. Il suo operato è caratterizzato da uno stile semplice ma controverso e il fulcro del suo lavoro è la sua visione non convenzionale del mondo, che viola anche leggi fisiche.",
-          "flipimage": "https://www.sessions.edu/wp-content/uploads/Shigeo-Fukuda-Exhibition.jpg",
+          "flipimage": "https://www.anopticalillusion.com/wp-content/uploads/2013/02/Shigeo-Fukuda-Exhibition.jpg",
           "numSkipCarte": 2,
           "skipCarteDirection": 1,
           "indicatore": {
@@ -7129,7 +7129,7 @@
           "img": "/samuele.svg",
           "anno": "Ann1964o",
           "flip": true,
-          "flipImg":"https://www.sessions.edu/wp-content/uploads/Shigeo-Fukuda-Exhibition.jpg",
+          "flipImg":"https://mediamadegreat.com/wp-content/uploads/2016/08/tokyo_1964.jpg",
           "flipDescrizione":" pittogrammi raffiguranti le diverse attività sportive vengono riproposti ciclicamente a ogni edizione dei Giochi olimpici. Fra le interpretazioni considerate più interessanti per il periodo qui trattato vi sono i pittogrammi delle Olimpiadi di Tokyo del 1964, di impostazione gestaltica, realizzati sotto la direzione artistica di Katzumie Masaru",
           "important":true,
           "indicatore": {
