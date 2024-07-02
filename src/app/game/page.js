@@ -540,7 +540,7 @@ export default function Game() {
                     : (
                       <div className='w-full h-full overflow-auto flex-col  bg-secondary '>
                         <img className='point-event-none bg-cover' sizes='100vw, 30vw' src={carta.flipImg}></img>
-                        <p className='w-full h-full py-6 font-custom '>
+                        <p className='w-full h-full py-6 font-custom text-black ' style={{color:"black"}}>
                           {carta.flipDescrizione}
                         </p>
                       </div>))}
