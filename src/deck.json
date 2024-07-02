@@ -5,32 +5,6 @@
       "carta": [
         {
           "id": -1,
-          "numSkipCarte": 3,
-          "skipCarteDirection": 1,
-          "titolo": "Tutorial",
-          "descrizione": "Benvenuto nella tua tipografia",
-          "testoSinistra": "salta tutorial",
-          "testoDestra": "scorri",
-          "anno": "0",
-          "flip": false,
-          "img": "/tutorial1.svg",
-          "indicatore": {
-            "etica": {
-              "destra": 0,
-              "sinistra": 0
-            },
-            "popolo": {
-              "destra": 0,
-              "sinistra": 0
-            },
-            "progresso": {
-              "destra": 0,
-              "sinistra": 0
-            }
-          }
-        },
-        {
-          "id": -1,
           "titolo": "Tutorial",
           "descrizione": "Come giocare",
           "numSkipCarte": 2,
