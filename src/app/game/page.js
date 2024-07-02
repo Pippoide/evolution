@@ -22,7 +22,7 @@ export default function Game() {
 
   const containerRef = useRef(null);
 
-  const [submit,setSubmit] = useState(false);
+  const [submit, setSubmit] = useState(false);
 
   //IndicatoriGioco
   const [vittoria, setVittoria] = useState(false);
@@ -132,34 +132,39 @@ export default function Game() {
       (indicatorePopolo >= 100 || indicatorePopolo <= 0) ||
       (indicatoreProgresso >= 100 || indicatoreProgresso <= 0)
     ) {
-      setStatusGioco(true);
       if (indicatoreEtica >= 100 || indicatoreEtica <= 0) {
         setStatusGioco(true);
         if (indicatoreEtica >= 100) {
-          setCartaMorte(prev => prev.etica.plus)
+          setCartaMorte(prev => prev.etica.plus);
         }
         else {
           setCartaMorte(prev => prev.etica.less)
         }
+      } else {
+        if (indicatorePopolo >= 100 || indicatorePopolo <= 0) {
+          setStatusGioco(true);
+          if (indicatorePopolo >= 100) {
+            setCartaMorte(prev => prev.popolo.plus)
+          }
+          else {
+            setCartaMorte(prev => prev.popolo.less)
+          }
+        } else {
+
+
+          if (indicatoreProgresso >= 100 || indicatoreProgresso <= 0) {
+            setStatusGioco(true);
+            if (indicatoreProgresso >= 100) {
+              setCartaMorte(prev => prev.progresso.plus)
+            }
+            else {
+              setCartaMorte(prev => prev.progresso.less)
+            }
+          }
+        }
       }
-      if (indicatorePopolo >= 100 || indicatorePopolo <= 0) {
-        setStatusGioco(true);
-        if (indicatorePopolo >= 100) {
-          setCartaMorte(prev => prev.popolo.plus)
-        }
-        else {
-          setCartaMorte(prev => prev.popolo.less)
-        }
-      }
-      if (indicatoreProgresso >= 100 || indicatoreProgresso <= 0) {
-        setStatusGioco(true);
-        if (indicatoreProgresso >= 100) {
-          setCartaMorte(prev => prev.progresso.plus)
-        }
-        else {
-          setCartaMorte(prev => prev.progresso.less)
-        }
-      }
+
+      setStatusGioco(true);
     }
     else {
       console.log("Partita in corso")
@@ -446,22 +451,22 @@ export default function Game() {
                 ) : (
                   vittoria ? (<div className='w-full aspect-4/5 relative z-10 cardSpecial rounded-3xl'>
                     <div className="bg-primary w-full h-full flex flex-col rounded-3xl  ">
-                    <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
-                      event.preventDefault();
-                      try {
-                        setSubmit(true);
-                        const response = await insertData();
-                        console.log('before push:', response)
-                        router.push('/leadboard')
-                      } catch (err) {
-                        setSubmit(false);
-                        console.error(err);
-                      }
-                    }}>
-                      <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai vinto con {score} mosse</h1>
-                      <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)} ></input>
-                      <button disabled={submit} stype="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
-                    </form>
+                      <form className="flex flex-col w-full space-y-3 text-center" onClick={(e) => e.stopPropagation()} onSubmit={async (event) => {
+                        event.preventDefault();
+                        try {
+                          setSubmit(true);
+                          const response = await insertData();
+                          console.log('before push:', response)
+                          router.push('/leadboard')
+                        } catch (err) {
+                          setSubmit(false);
+                          console.error(err);
+                        }
+                      }}>
+                        <h1 className='font-custom lg:text-3xl text-xl text-secondary'>Hai vinto con {score} mosse</h1>
+                        <input className='p-3 rounded-full' type="text" placeholder="nickname" minLength={3} value={nomeGiocatore} onChange={(e) => setNomeGiocatore(e.target.value)} ></input>
+                        <button disabled={submit} stype="submit" className=' bg-secondary p-3 rounded-full font-custom'>Invia</button>
+                      </form>
                     </div>
                   </div>) : (
                     <motion.div
